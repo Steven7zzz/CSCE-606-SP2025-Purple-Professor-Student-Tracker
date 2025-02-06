@@ -90,7 +90,6 @@ GEM
       msgpack (~> 1.2)
     brakeman (7.0.0)
       racc
-    browser (6.2.0)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -246,7 +245,6 @@ GEM
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
-    rexml (3.4.0)
     rubocop (1.71.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -276,14 +274,7 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
-    rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.28.0)
-      base64 (~> 0.2)
-      logger (~> 1.4)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
-      websocket (~> 1.0)
     sshkit (1.23.2)
       base64
       net-scp (>= 1.1.2)
@@ -307,7 +298,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    websocket (1.2.11)
     websocket-driver (0.7.7)
       base64
       websocket-extensions (>= 0.1.0)
@@ -330,7 +320,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
-  browser
   capybara
   debug
   jbuilder
@@ -340,7 +329,6 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.1.0)
   rubocop-rails-omakase
-  selenium-webdriver
   thruster
   tzinfo-data
   web-console
