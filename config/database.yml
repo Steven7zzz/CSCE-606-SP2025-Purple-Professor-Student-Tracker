@@ -13,6 +13,4 @@ test:
 
 production:
   <<: *default
-  database: purple_professor_student_tracker_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
