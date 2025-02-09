@@ -2,7 +2,7 @@ require 'csv'
 
 class TeachersController < ApplicationController
   def index
-    @teachers = Teacher.all  # 获取所有教师数据
+    @teachers = Teacher.all  # get all the teachers data
   end
 
   def import
