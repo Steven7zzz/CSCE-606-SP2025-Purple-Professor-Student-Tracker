@@ -1,0 +1,84 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/helpers/home_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/helpers/students_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/models/student.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/controllers/students_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/controllers/home_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/steven/Desktop/CSCE-606-SP2025-Purple-Professor-Student-Tracker/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      }
+    },
+    "timestamp": 1739063044
+  }
+}
