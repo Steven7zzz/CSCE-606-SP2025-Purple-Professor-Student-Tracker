@@ -12,7 +12,12 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
+    if student_params[:uin].length != 9
+      raise ArgumentError, "UIN must be exactly 9 characters long."
+    else
+      @student = Student.new(student_params)
+    end
+
     if @student.save
       redirect_to @student
     else
