@@ -55,6 +55,8 @@ group :test do
   gem "capybara"
   # gem "selenium-webdriver"
   gem "simplecov", require: false
+
+  gem 'rails-controller-testing'
 end
 
 # gem 'browser'
