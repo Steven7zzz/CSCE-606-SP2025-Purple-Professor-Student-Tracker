@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "Students", type: :request do
   describe "GET /students" do
     it "returns a successful response" do
-      student1 = Student.create(first_name: "John", 
-      last_name: 'Doe', 
+      student1 = Student.create(first_name: "John",
+      last_name: 'Doe',
       major: 'Computer Science',
       email: 'john.doe@example.com')
 
@@ -18,8 +18,8 @@ end
 RSpec.describe "Student", type: :request do
   describe "GET /students/:id" do
     it "returns a successful response" do
-      student = Student.create(first_name: "John", 
-      last_name: 'Doe', 
+      student = Student.create(first_name: "John",
+      last_name: 'Doe',
       major: 'Computer Science',
       email: 'john.doe@example.com')
       get student_path(student)
@@ -105,6 +105,5 @@ RSpec.describe StudentsController, type: :controller do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
-
   end
 end
