@@ -6,4 +6,4 @@ Deployed App: https://purple-prof-student-tracker-31c3667c862a.herokuapp.com/
 
 Project Management: https://github.com/users/Steven7zzz/projects/1/views/1
 
-Code Climate report:
+Code Climate report: https://codeclimate.com/github/Steven7zzz/CSCE-606-SP2025-Purple-Professor-Student-Tracker
