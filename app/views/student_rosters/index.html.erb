@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Student rosters" %>
+
+<h1>Student Rosters</h1>
+
+<%= form_with url: import_student_rosters_path, multipart: true, method: :post do |form| %>
+  <div>
+    <%= form.label :file, "Upload CSV File:" %>
+    <%= form.file_field :file, accept: ".csv" %>
+  </div>
+  <div>
+    <%= form.submit "Upload", class: "upload-button" %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>UIN</th>
+      <th>Major</th>
+      <th>Class Level</th>
+      <th>Email</th>
+      <th>Final Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @student_rosters.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.uin %></td>
+        <td><%= student.major %></td>
+        <td><%= student.class_level %></td>
+        <td><%= student.email %></td>
+        <td><%= student.final %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
