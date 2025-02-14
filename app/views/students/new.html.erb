@@ -1,0 +1,20 @@
+<h1>New student</h1>
+
+<%= form_with model: @student do |form| %>
+  <div>
+    <%= form.label :uin %>
+    <%= form.text_field :uin %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+    <%= form.label :major %>
+    <%= form.text_field :major %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

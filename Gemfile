@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-ruby '3.4.1'
-gem 'csv'
+ruby "3.4.1"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 
-gem 'pg', '~> 1.1'
+gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -41,6 +41,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rspec-rails"
 end
 
 group :development do
@@ -52,6 +54,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   # gem "selenium-webdriver"
+  gem "simplecov", require: false
+
+  gem "rails-controller-testing"
 end
 
 # gem 'browser'
