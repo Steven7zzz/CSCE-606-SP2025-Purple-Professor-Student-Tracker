@@ -1,23 +1,22 @@
 class StudentRostersController < ApplicationController
   before_action :set_student_roster, only: %i[ show edit update destroy ]
 
-  # GET /student_rosters or /student_rosters.json
   def index
-    @student_rosters = StudentRoster.all
-    
-    def import
-      if params[:file].present?
-        StudentRoster.import(params[:file])
-        flash[:notice] = "CSV imported successfully!"
-      else
-        flash[:alert] = "Please upload a valid CSV file."
-      end
-      redirect_to student_rosters_path
-    end
+    @rosters = StudentRoster.distinct.pluck(:roster_name) # Get unique rosters
   end
 
-  # GET /student_rosters/1 or /student_rosters/1.json
   def show
+    @students = StudentRoster.where(roster_name: params[:id]) # Load students in selected roster
+  end
+
+  def import
+    if params[:file].present?
+      StudentRoster.import(params[:file])
+      flash[:notice] = "CSV imported successfully!"
+    else
+      flash[:alert] = "Please upload a valid CSV file."
+    end
+    redirect_to student_rosters_path
   end
 
   # GET /student_rosters/new
@@ -70,7 +69,7 @@ class StudentRostersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student_roster
-      @student_roster = StudentRoster.find(params.expect(:id))
+      @student_roster = StudentRoster.find_by(roster_name: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
