@@ -1,6 +1,16 @@
 class StudentsController < ApplicationController
   def index
     @students = Student.all
+
+    sorting_column = params[:sort]
+    sorting_type = params[:direction]
+
+    @sorting_type = ['asc', 'desc'].include?(sorting_type) ? sorting_type : 'asc'
+
+    valid_columns = ['first_name', 'last_name', 'uin']
+    @sorting_column = valid_columns.include?(sorting_column) ? sorting_column : 'first_name'
+
+    @students = Student.order("#{@sorting_column} #{@sorting_type}")
   end
 
   def show
