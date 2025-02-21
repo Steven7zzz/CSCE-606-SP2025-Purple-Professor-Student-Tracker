@@ -1,9 +1,30 @@
 <h1>Students</h1>
 
+<%= link_to "Add Students", new_student_path %>
+
+<% sort_class = "sorting_column_" + @sorting_type %>
+
 <div id="students">
-  <% @students.each do |student| %>
-    <div>
-      <%= student.first_name %>
-    </div>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th class="<%= sort_class if @sorting_column == 'first_name' %>">
+          <% if @sorting_column == 'first_name' && @sorting_type == 'asc' %>
+            <%= link_to 'First Name ↑', students_path(sort: 'first_name', direction: 'desc') %>
+          <% elsif @sorting_column == 'first_name' && @sorting_type == 'desc' %>          
+            <%= link_to 'First Name ↓', students_path(sort: 'first_name', direction: 'asc') %>
+         <% else %>
+           <%= link_to 'First Name', students_path(sort: 'first_name', direction: 'desc') %>
+          <% end %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td class="<%= sort_class if @sorting_column == 'first_name' %>"><%= link_to student.first_name, student %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
