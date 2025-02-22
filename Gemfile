@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby "3.4.1"
-
+gem "csv"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -41,8 +41,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
-  gem "rspec-rails"
 end
 
 group :development do
@@ -54,13 +52,12 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "cucumber-rails", require: false
   gem "simplecov", require: false
-
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem "rails-controller-testing"
-
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
 end
 
 # gem 'browser'
-gem "csv"

@@ -1,0 +1,52 @@
+<h1>Add a New Teacher</h1>
+<% if @teacher.errors.any? %>
+  <div class="error-messages">
+    <h2><%= pluralize(@teacher.errors.count, "error") %> prevented this teacher from being saved:</h2>
+    <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @teacher, url: teachers_path, method: :post, local: true do |f| %>
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name, id: "teacher_first_name" %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name, id: "teacher_last_name" %>
+  </p>
+
+  <p>
+    <%= f.label :uin %><br>
+    <%= f.text_field :uin, id: "teacher_uin" %>
+  </p>
+
+  <p>
+    <%= f.label :department %><br>
+    <%= f.text_field :department, id: "teacher_department" %>
+  </p>
+
+  <p>
+    <%= f.label :course_and_semester, "Course & Semester" %><br>
+    <%= f.text_field :course_and_semester, id: "teacher_course_and_semester" %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description, id: "teacher_description" %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, id: "teacher_email" %>
+  </p>
+  <p>
+    <%= f.submit "Add Teacher" %>
+  </p>
+<% end %>
+
+<%= link_to "Back to Teachers List", teachers_path %>

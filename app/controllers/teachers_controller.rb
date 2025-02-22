@@ -1,30 +1,28 @@
 require 'csv'
-
 class TeachersController < ApplicationController
   def index
-    @teachers = Teacher.all  # get all the teachers data
+    @teachers = Teacher.all  
   end
 
-  def import
-    if params[:file].present?
-      begin
-        CSV.foreach(params[:file].path, headers: true) do |row|
-          teacher = Teacher.find_or_initialize_by(uin: row["UIN"]) # void repeating
-          teacher.update!(
-            first_name: row["First Name"],
-            last_name: row["Last Name"],
-            department: row["Department"],
-            course_and_semester: row["Course and Semester"],
-            description: row["Description"]
-          )
-        end
-        redirect_to teachers_path, notice: "CSV imported successfully"
-      rescue => e
-        redirect_to teachers_path, alert: "CSV fails: #{e.message}"
-      end
+  
+  def new
+    @teacher = Teacher.new
+  end
+
+  def create
+    @teacher = Teacher.new(teacher_params)
+    if @teacher.save
+      redirect_to teachers_path, notice: "Teacher added successfully!"
     else
-      redirect_to teachers_path, alert: "please upload CSV"
+      flash[:alert] = @teacher.errors.full_messages.join(", ")
+      render :new, status: :unprocessable_entity 
     end
+  end
+
+  private
+
+  def teacher_params
+    params.require(:teacher).permit(:first_name, :last_name, :uin, :department, :course_and_semester, :description, :email)
   end
 end
 
