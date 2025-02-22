@@ -26,17 +26,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_180206) do
     t.string "roster_name"
   end
 
-  create_table "student_rosters", force: :cascade do |t|
-    t.string "name"
-    t.string "uin"
-    t.string "major"
-    t.string "class_level"
-    t.string "email"
-    t.integer "final"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "students", force: :cascade do |t|
     t.string "uin"
     t.string "first_name"
