@@ -23,6 +23,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_21_225029) do
     t.integer "final"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "roster_name"
   end
 
   create_table "students", force: :cascade do |t|

@@ -8,4 +8,12 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
- 
+ /* .sorting_column_asc, .sorting_column_asc a {
+    font-weight: bold;
+    color: #c0557c ;
+  }
+
+.sorting_column_desc, .sorting_column_desc a {
+    font-weight: bold;
+    color: #39d880;
+  } */

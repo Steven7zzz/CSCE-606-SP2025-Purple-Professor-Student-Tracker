@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<h1>Roster: <%= params[:id] %></h1>
 
-<%= render @student_roster %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>UIN</th>
+      <th>Major</th>
+      <th>Class Level</th>
+      <th>Email</th>
+      <th>Final Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.uin %></td>
+        <td><%= student.major %></td>
+        <td><%= student.class_level %></td>
+        <td><%= student.email %></td>
+        <td><%= student.final %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<div>
-  <%= link_to "Edit this student roster", edit_student_roster_path(@student_roster) %> |
-  <%= link_to "Back to student rosters", student_rosters_path %>
-
-  <%= button_to "Destroy this student roster", @student_roster, method: :delete %>
-</div>
+<%= link_to "Back to Rosters", student_rosters_path %>
