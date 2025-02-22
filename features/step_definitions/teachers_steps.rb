@@ -48,22 +48,38 @@ Then('I should be on the add teacher page') do
   expect(current_path).to eq(new_teacher_path)
 end
 
+Given(/^a teacher "(.*)" exists with UIN "(.*)"$/) do |name, uin|
+  first_name, last_name = name.split(" ")
+  Teacher.create!(
+    first_name: first_name,
+    last_name: last_name,
+    uin: uin,
+    department: "Computer Science",
+    course_and_semester: "CSCE 606 - Spring 2025",
+    description: "Expert in AI",
+    email: "alice@example.com"
+  )
+end
 
-When('I fill in {string} with {string}') do |field, value|
-  field_name_map = {
-    "First Name" => "teacher_first_name",
-    "Last Name" => "teacher_last_name",
-    "UIN" => "teacher_uin",
-    "Department" => "teacher_department",
-    "Course & Semester" => "teacher_course_and_semester",
-    "Description" => "teacher_description",
-    "Email" => "teacher_email"
-  }
-  field_id = field_name_map[field]
-  
-  if field_id
-    fill_in field_id, with: value
-  else
-    raise "Could not find field with label '#{field}'"
+When(/^I fill in "(.*)" with "(.*)"$/) do |field, value|
+  fill_in field, with: value
+end
+
+When(/^I visit (.*)'s profile page$/) do |name|
+  teacher = Teacher.find_by(first_name: name.split(" ").first)
+  visit teacher_path(teacher)
+end
+
+When(/^I delete "(.*)"$/) do |name|
+  teacher = Teacher.find_by(first_name: name.split(" ").first)
+  visit teachers_path
+  within("tr", text: teacher.first_name) do
+    click_link "Delete"
   end
 end
+
+Then(/^I should not see "(.*)" on the teachers index page$/) do |name|
+  visit teachers_path
+  expect(page).not_to have_content(name)
+end
+

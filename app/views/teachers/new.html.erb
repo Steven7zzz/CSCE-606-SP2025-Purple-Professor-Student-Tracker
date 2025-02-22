@@ -1,4 +1,14 @@
 <h1>Add a New Teacher</h1>
+<% if @teacher.errors.any? %>
+  <div class="error-messages">
+    <h2><%= pluralize(@teacher.errors.count, "error") %> prevented this teacher from being saved:</h2>
+    <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_with model: @teacher, url: teachers_path, method: :post, local: true do |f| %>
   <p>
