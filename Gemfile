@@ -54,9 +54,15 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   # gem "selenium-webdriver"
+  gem "cucumber-rails", require: false
   gem "simplecov", require: false
-
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem "rails-controller-testing"
+  gem 'selenium-webdriver'
+  gem 'database_cleaner-active_record'
 end
 
 # gem 'browser'
+
+

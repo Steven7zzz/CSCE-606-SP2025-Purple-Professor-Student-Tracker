@@ -9,6 +9,7 @@
       <th>Department</th>
       <th>Course & Semester</th>
       <th>Description</th>
+      <th>Email</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
         <td><%= teacher.department %></td>
         <td><%= teacher.course_and_semester %></td>
         <td><%= teacher.description %></td>
+        <td><%= teacher.email %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,17 +29,17 @@
     <tr>
       <td colspan="6">Total Teachers: <%= @teachers.count %></td>
     </tr>
-    <tr>
-      <td colspan="6">
-        <%= form_with url: import_teachers_path, method: :post, local: true, multipart: true do |f| %>
-          <input type="file" name="file">
-          <input type="submit" value="Upload CSV">
-        <% end %>
-      </td>
-    </tr>
+
   </tfoot>
 </table>
-<%= link_to "Back to Homepage", root_path %>
+<div>
+  <%= link_to "Back to Homepage", root_path, class: "btn btn-secondary" %>
+  <%= link_to "Add Teacher", new_teacher_path, class: "btn btn-primary" %>
+</div>
+
+
+
+
 
 
 
