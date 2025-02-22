@@ -1,0 +1,28 @@
+<h1>Roster: <%= params[:id] %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>UIN</th>
+      <th>Major</th>
+      <th>Class Level</th>
+      <th>Email</th>
+      <th>Final Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.uin %></td>
+        <td><%= student.major %></td>
+        <td><%= student.class_level %></td>
+        <td><%= student.email %></td>
+        <td><%= student.final %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back to Rosters", student_rosters_path %>
