@@ -213,9 +213,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.3-arm-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.2-arm64-darwin)
-      racc (~> 1.4)
     nokogiri (1.18.3-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.3-x86_64-linux-gnu)
       racc (~> 1.4)
@@ -343,7 +343,7 @@ GEM
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.28.0)
+    selenium-webdriver (4.29.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -369,7 +369,7 @@ GEM
     thruster (0.1.11)
     thruster (0.1.11-aarch64-linux)
     thruster (0.1.11-arm64-darwin)
-    thruster (0.1.11-arm64-darwin)
+    thruster (0.1.11-x86_64-darwin)
     thruster (0.1.11-x86_64-linux)
     timeout (0.4.3)
     tzinfo (2.0.6)
@@ -401,6 +401,7 @@ PLATFORMS
   arm-linux-musl
   arm64-darwin-23
   arm64-darwin-23
+  x86_64-darwin-23
   x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl

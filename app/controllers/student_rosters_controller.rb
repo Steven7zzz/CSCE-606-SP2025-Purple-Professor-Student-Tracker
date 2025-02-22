@@ -36,9 +36,6 @@ class StudentRostersController < ApplicationController
       if @student_roster.save
         format.html { redirect_to @student_roster, notice: "Student roster was successfully created." }
         format.json { render :show, status: :created, location: @student_roster }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @student_roster.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,9 +46,6 @@ class StudentRostersController < ApplicationController
       if @student_roster.update(student_roster_params)
         format.html { redirect_to @student_roster, notice: "Student roster was successfully updated." }
         format.json { render :show, status: :ok, location: @student_roster }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @student_roster.errors, status: :unprocessable_entity }
       end
     end
   end

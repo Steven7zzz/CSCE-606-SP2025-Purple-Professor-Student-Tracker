@@ -9,7 +9,7 @@ class StudentRoster < ApplicationRecord
       # Normalize headers: Strip whitespace and replace newline characters
       student_data = row.to_hash.transform_keys { |key| key.to_s.strip.gsub(/\s+/, " ") }
 
-      puts student_data  # Debugging: See the formatted output
+      # puts student_data  # Debugging: See the formatted output
 
       StudentRoster.find_or_create_by!(uin: student_data["UIN"]) do |student|
         student.name = student_data["Name"]
