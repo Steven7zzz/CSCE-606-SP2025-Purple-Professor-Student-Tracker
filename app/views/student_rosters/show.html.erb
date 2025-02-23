@@ -3,12 +3,66 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>UIN</th>
-      <th>Major</th>
-      <th>Class Level</th>
-      <th>Email</th>
-      <th>Final Grade</th>
+      <th>
+        <%= link_to "Name", student_roster_path(sort: 'name', order: @sort == 'name' && @order == 'asc' ? 'desc' : 'asc') %>
+        <% if @sort == 'name' %>
+          <% if @order == 'asc' %>
+            ▼
+          <% else %>
+            ▲
+          <% end %>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to "UIN", student_roster_path(sort: 'uin', order: @sort == 'uin' && @order == 'asc' ? 'desc' : 'asc') %>
+        <% if @sort == 'uin' %>
+          <% if @order == 'asc' %>
+            ▼
+          <% else %>
+            ▲
+          <% end %>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to "Major", student_roster_path(sort: 'major', order: @sort == 'major' && @order == 'asc' ? 'desc' : 'asc') %>
+        <% if @sort == 'major' %>
+          <% if @order == 'asc' %>
+            ▼
+          <% else %>
+            ▲
+          <% end %>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to "Class Level", student_roster_path(sort: 'class_level', order: @sort == 'class_level' && @order == 'asc' ? 'desc' : 'asc') %>
+        <% if @sort == 'class_level' %>
+          <% if @order == 'asc' %>
+            ▼
+          <% else %>
+            ▲
+          <% end %>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to "Email", student_roster_path(sort: 'email', order: @sort == 'email' && @order == 'asc' ? 'desc' : 'asc') %>
+        <% if @sort == 'email' %>
+          <% if @order == 'asc' %>
+            ▼
+          <% else %>
+            ▲
+          <% end %>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to "Final Grade", student_roster_path(sort: 'final', order: @sort == 'final' && @order == 'asc' ? 'desc' : 'asc') %>
+        <% if @sort == 'final' %>
+          <% if @order == 'asc' %>
+            ▼
+          <% else %>
+            ▲
+          <% end %>
+        <% end %>
+      </th>
     </tr>
   </thead>
   <tbody>

@@ -6,7 +6,18 @@ class StudentRostersController < ApplicationController
   end
 
   def show
-    @students = StudentRoster.where(roster_name: params[:id]) # Load students in selected roster
+    sort_column_options = %w[name uin major class_level email final]
+    order_options = %w[asc desc]
+    
+    sort = sort_column_options.include?(params[:sort]) ? params[:sort] : (session[:sort] || 'name')
+    order = order_options.include?(params[:order]) ? params[:order] : (session[:order] || 'asc')
+    
+    session[:sort] = sort
+    session[:order] = order
+    @sort = sort
+    @order = order
+    
+    @students = StudentRoster.where(roster_name: params[:id]).order("#{sort} #{order}") # Load students in selected roster
   end
 
   def import
