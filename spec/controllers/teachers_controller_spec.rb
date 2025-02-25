@@ -60,4 +60,3 @@ RSpec.describe TeachersController, type: :controller do
     end
   end
 end
-

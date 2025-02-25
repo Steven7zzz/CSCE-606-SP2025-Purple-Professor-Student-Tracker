@@ -7,5 +7,5 @@ When("I visit the students index page") do
 end
 
 Then("I should see a successful response") do
-  expect(page).to have_content("Students") 
+  expect(page).to have_content("Students")
 end

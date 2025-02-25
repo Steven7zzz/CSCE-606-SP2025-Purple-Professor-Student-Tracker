@@ -11,4 +11,3 @@ Teacher.create([
   { first_name: "Alice", last_name: "Smith", uin: "12345678", department: "Computer Science", course_and_semester: "CSCE 606 - Fall 2025", description: "Expert in AI" },
   { first_name: "Bob", last_name: "Johnson", uin: "87654321", department: "Mathematics", course_and_semester: "MATH 101 - Spring 2025", description: "Specialist in Calculus" }
 ])
-

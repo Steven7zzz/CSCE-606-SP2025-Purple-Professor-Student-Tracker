@@ -1,10 +1,10 @@
-require 'csv'
+require "csv"
 class TeachersController < ApplicationController
   def index
-    @teachers = Teacher.all  
+    @teachers = Teacher.all
   end
 
-  
+
   def new
     @teacher = Teacher.new
   end
@@ -15,7 +15,7 @@ class TeachersController < ApplicationController
       redirect_to teachers_path, notice: "Teacher added successfully!"
     else
       flash[:alert] = @teacher.errors.full_messages.join(", ")
-      render :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,4 +25,3 @@ class TeachersController < ApplicationController
     params.require(:teacher).permit(:first_name, :last_name, :uin, :department, :course_and_semester, :description, :email)
   end
 end
-
