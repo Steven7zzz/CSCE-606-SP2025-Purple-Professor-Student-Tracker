@@ -54,10 +54,10 @@ group :test do
   gem "selenium-webdriver"
   gem "cucumber-rails", require: false
   gem "simplecov", require: false
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem "rspec-rails"
+  gem "shoulda-matchers"
   gem "rails-controller-testing"
-  gem 'database_cleaner-active_record'
+  gem "database_cleaner-active_record"
 end
 
 # gem 'browser'

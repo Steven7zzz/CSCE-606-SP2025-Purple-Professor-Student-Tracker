@@ -1,8 +1,7 @@
-require 'csv'
+require "csv"
 
 class StudentRoster < ApplicationRecord
   def self.import(file)
-
     roster_name = File.basename(file.original_filename, ".csv").strip  # Extract filename
 
     CSV.foreach(file.path, headers: true, liberal_parsing: true, encoding: "bom|utf-8") do |row|

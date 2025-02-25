@@ -17,7 +17,7 @@ When('I am on the teachers index page') do
 end
 
 Then('I should see {string}') do |text|
-  expect(page).to have_content(text) 
+  expect(page).to have_content(text)
 end
 
 When('I click on {string}') do |element_text|
@@ -35,12 +35,12 @@ Then('I should be on the homepage') do
 end
 
 Given('I am on the homepage') do
-  visit root_path  
+  visit root_path
 end
 
 
 Then('I should be on the teachers index page') do
-  expect(current_path).to eq(teachers_path)  
+  expect(current_path).to eq(teachers_path)
 end
 
 
@@ -82,4 +82,3 @@ Then(/^I should not see "(.*)" on the teachers index page$/) do |name|
   visit teachers_path
   expect(page).not_to have_content(name)
 end
-
