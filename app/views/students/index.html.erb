@@ -4,8 +4,15 @@
 
 <% sort_class = "sorting_column_" + @sorting_type %>
 
+<!-- I got the style for this table from: dofactory.com/html/table/class -->
+<style>
+  .myTableStyle { border-collapse: collapse; width:300px; }
+  .myTableStyle th, .myTableStyle td { padding: 5px; border: solid 1px #777; }
+  .myTableStyle th { background-color: lightblue; }
+</style>
+
 <div id="students">
-  <table>
+  <table = "myTableStyle">
     <thead>
       <tr>
         <th class="<%= sort_class if @sorting_column == 'first_name' %>">
@@ -17,8 +24,21 @@
            <%= link_to 'First Name', students_path(sort: 'first_name', direction: 'desc') %>
           <% end %>
         </th>
+
+        
+        <th class="<%= sort_class if @sorting_column == 'uin' %>">
+          <% if @sorting_column == 'uin' && @sorting_type == 'asc' %>
+            <%= link_to 'UIN ↑', students_path(sort: 'uin', direction: 'desc') %>
+          <% elsif @sorting_column == 'uin' && @sorting_type == 'desc' %>          
+            <%= link_to 'UIN ↓', students_path(sort: 'uin', direction: 'asc') %>
+         <% else %>
+           <%= link_to 'UIN', students_path(sort: 'uin', direction: 'desc') %>
+          <% end %>
+        </th>
+
       </tr>
     </thead>
+    
     <tbody>
       <% @students.each do |student| %>
         <tr>
