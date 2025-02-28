@@ -15,7 +15,18 @@
   <table = "myTableStyle">
     <thead>
       <tr>
-        <th class="<%= sort_class if @sorting_column == 'first_name' %>">
+
+      <th class="<%= sort_class if @sorting_column == 'uin' %>">
+        <% if @sorting_column == 'uin' && @sorting_type == 'asc' %>
+          <%= link_to 'UIN ↑', students_path(sort: 'uin', direction: 'desc') %>
+        <% elsif @sorting_column == 'uin' && @sorting_type == 'desc' %>          
+          <%= link_to 'UIN ↓', students_path(sort: 'uin', direction: 'asc') %>
+        <% else %>
+         <%= link_to 'UIN', students_path(sort: 'uin', direction: 'desc') %>
+        <% end %>
+      </th>
+
+      <th class="<%= sort_class if @sorting_column == 'first_name' %>">
           <% if @sorting_column == 'first_name' && @sorting_type == 'asc' %>
             <%= link_to 'First Name ↑', students_path(sort: 'first_name', direction: 'desc') %>
           <% elsif @sorting_column == 'first_name' && @sorting_type == 'desc' %>          
@@ -25,16 +36,36 @@
           <% end %>
         </th>
 
-        
-        <th class="<%= sort_class if @sorting_column == 'uin' %>">
-          <% if @sorting_column == 'uin' && @sorting_type == 'asc' %>
-            <%= link_to 'UIN ↑', students_path(sort: 'uin', direction: 'desc') %>
-          <% elsif @sorting_column == 'uin' && @sorting_type == 'desc' %>          
-            <%= link_to 'UIN ↓', students_path(sort: 'uin', direction: 'asc') %>
+        <th class="<%= sort_class if @sorting_column == 'last_name' %>">
+          <% if @sorting_column == 'last_name' && @sorting_type == 'asc' %>
+            <%= link_to 'Last Name ↑', students_path(sort: 'last_name', direction: 'desc') %>
+          <% elsif @sorting_column == 'last_name' && @sorting_type == 'desc' %>          
+            <%= link_to 'Last Name ↓', students_path(sort: 'last_name', direction: 'asc') %>
          <% else %>
-           <%= link_to 'UIN', students_path(sort: 'uin', direction: 'desc') %>
+           <%= link_to 'Last Name', students_path(sort: 'last_name', direction: 'desc') %>
           <% end %>
         </th>
+
+      <th class="<%= sort_class if @sorting_column == 'major' %>">
+        <% if @sorting_column == 'major' && @sorting_type == 'asc' %>
+          <%= link_to 'Major ↑', students_path(sort: 'major', direction: 'desc') %>
+        <% elsif @sorting_column == 'major' && @sorting_type == 'desc' %>          
+          <%= link_to 'Major ↓', students_path(sort: 'major', direction: 'asc') %>
+        <% else %>
+         <%= link_to 'Major', students_path(sort: 'major', direction: 'desc') %>
+        <% end %>
+      </th>
+
+      <th class="<%= sort_class if @sorting_column == 'email' %>">
+        <% if @sorting_column == 'email' && @sorting_type == 'asc' %>
+          <%= link_to 'Email ↑', students_path(sort: 'email', direction: 'desc') %>
+        <% elsif @sorting_column == 'email' && @sorting_type == 'desc' %>          
+          <%= link_to 'Email ↓', students_path(sort: 'email', direction: 'asc') %>
+        <% else %>
+         <%= link_to 'Email', students_path(sort: 'email', direction: 'desc') %>
+        <% end %>
+      </th>
+
 
       </tr>
     </thead>
