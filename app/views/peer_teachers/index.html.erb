@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Peer teachers" %>
+
+<h1>Peer teachers</h1>
+
+<div id="peer_teachers">
+  <% @peer_teachers.each do |peer_teacher| %>
+    <%= render peer_teacher %>
+    <p>
+      <%= link_to "Show this peer teacher", peer_teacher %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New peer teacher", new_peer_teacher_path %>

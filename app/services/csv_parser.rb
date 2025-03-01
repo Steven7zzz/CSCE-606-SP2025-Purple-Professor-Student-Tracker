@@ -4,7 +4,7 @@ class CsvParser
   def self.import(file)
     course_info = file.original_filename.match(/([a-zA-Z]+)(\d+)_(\d+)\.csv/)
     if course_info
-        @course = Course.find_or_create_by(name: course_info[1], number: course_info[2], section: course_info[3])
+        @course = Course.find_or_create_by(name: course_info[1].upcase, number: course_info[2], section: course_info[3])
     else
         raise "Filename format is incorrect"
     end

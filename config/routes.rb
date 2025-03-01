@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :pt_enrollments
+  resources :peer_teachers
+  resources :enrollments
+  resources :courses
+  resources :students
   resources :rosters do
     collection { post :import }
   end

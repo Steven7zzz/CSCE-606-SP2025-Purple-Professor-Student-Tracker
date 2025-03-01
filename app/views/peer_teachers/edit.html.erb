@@ -1,0 +1,12 @@
+<% content_for :title, "Editing peer teacher" %>
+
+<h1>Editing peer teacher</h1>
+
+<%= render "form", peer_teacher: @peer_teacher %>
+
+<br>
+
+<div>
+  <%= link_to "Show this peer teacher", @peer_teacher %> |
+  <%= link_to "Back to peer teachers", peer_teachers_path %>
+</div>

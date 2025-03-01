@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @peer_teacher %>
+
+<div>
+  <%= link_to "Edit this peer teacher", edit_peer_teacher_path(@peer_teacher) %> |
+  <%= link_to "Back to peer teachers", peer_teachers_path %>
+
+  <%= button_to "Destroy this peer teacher", @peer_teacher, method: :delete %>
+</div>
