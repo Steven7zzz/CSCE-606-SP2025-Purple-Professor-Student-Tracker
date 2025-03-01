@@ -4,77 +4,55 @@
 
 <% sort_class = "sorting_column_" + @sorting_type %>
 
-<!-- I got the style for this table from: dofactory.com/html/table/class -->
+
 <style>
-  .myTableStyle { border-collapse: collapse; width:300px; }
-  .myTableStyle th, .myTableStyle td { padding: 5px; border: solid 1px #777; }
-  .myTableStyle th { background-color: lightblue; }
+  table {
+    table-layout: fixed;
+    width: 30%;
+    border-collapse: collapse;
+    border: 3px solid black;
+
+    th {
+      background-color: cfcfcf;
+      color: black;
+      border-bottom: 3px solid black;
+      padding: 6px;
+    }
+    tr:hover {background-color: #cfcfcf;}
+    tr {
+      border-bottom: 1px solid #ddd;
+      hover {background-color: #cfcfcf;}
+    }
+  }
 </style>
 
+
 <div id="students">
-  <table = "myTableStyle">
+  <table>
     <thead>
       <tr>
-
-      <th class="<%= sort_class if @sorting_column == 'uin' %>">
-        <% if @sorting_column == 'uin' && @sorting_type == 'asc' %>
-          <%= link_to 'UIN ↑', students_path(sort: 'uin', direction: 'desc') %>
-        <% elsif @sorting_column == 'uin' && @sorting_type == 'desc' %>          
-          <%= link_to 'UIN ↓', students_path(sort: 'uin', direction: 'asc') %>
-        <% else %>
-         <%= link_to 'UIN', students_path(sort: 'uin', direction: 'desc') %>
-        <% end %>
-      </th>
-
-      <th class="<%= sort_class if @sorting_column == 'first_name' %>">
-          <% if @sorting_column == 'first_name' && @sorting_type == 'asc' %>
-            <%= link_to 'First Name ↑', students_path(sort: 'first_name', direction: 'desc') %>
-          <% elsif @sorting_column == 'first_name' && @sorting_type == 'desc' %>          
-            <%= link_to 'First Name ↓', students_path(sort: 'first_name', direction: 'asc') %>
-         <% else %>
-           <%= link_to 'First Name', students_path(sort: 'first_name', direction: 'desc') %>
-          <% end %>
-        </th>
-
-        <th class="<%= sort_class if @sorting_column == 'last_name' %>">
-          <% if @sorting_column == 'last_name' && @sorting_type == 'asc' %>
-            <%= link_to 'Last Name ↑', students_path(sort: 'last_name', direction: 'desc') %>
-          <% elsif @sorting_column == 'last_name' && @sorting_type == 'desc' %>          
-            <%= link_to 'Last Name ↓', students_path(sort: 'last_name', direction: 'asc') %>
-         <% else %>
-           <%= link_to 'Last Name', students_path(sort: 'last_name', direction: 'desc') %>
-          <% end %>
-        </th>
-
-      <th class="<%= sort_class if @sorting_column == 'major' %>">
-        <% if @sorting_column == 'major' && @sorting_type == 'asc' %>
-          <%= link_to 'Major ↑', students_path(sort: 'major', direction: 'desc') %>
-        <% elsif @sorting_column == 'major' && @sorting_type == 'desc' %>          
-          <%= link_to 'Major ↓', students_path(sort: 'major', direction: 'asc') %>
-        <% else %>
-         <%= link_to 'Major', students_path(sort: 'major', direction: 'desc') %>
-        <% end %>
-      </th>
-
-      <th class="<%= sort_class if @sorting_column == 'email' %>">
-        <% if @sorting_column == 'email' && @sorting_type == 'asc' %>
-          <%= link_to 'Email ↑', students_path(sort: 'email', direction: 'desc') %>
-        <% elsif @sorting_column == 'email' && @sorting_type == 'desc' %>          
-          <%= link_to 'Email ↓', students_path(sort: 'email', direction: 'asc') %>
-        <% else %>
-         <%= link_to 'Email', students_path(sort: 'email', direction: 'desc') %>
-        <% end %>
-      </th>
-
-
+        <th>UIN</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Major</th>
+        <th>Email</th>
       </tr>
     </thead>
     
     <tbody>
       <% @students.each do |student| %>
         <tr>
+          <td><%= student.uin %></td>
+          <td><%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td><%= student.major %></td>
+          <td><%= student.email %></td>
+
+          <!--
           <td class="<%= sort_class if @sorting_column == 'first_name' %>"><%= link_to student.first_name, student %></td>
-        </tr>
+          -->
+
+          </tr>
       <% end %>
     </tbody>
   </table>
