@@ -1,0 +1,25 @@
+<h1>Rosters#index</h1>
+<p>Find me in app/views/rosters/index.html.erb</p>
+
+<%= form_with url: import_rosters_path, multipart: true, method: :post do |form| %>
+<div>
+    <%= form.label :file, "Upload CSV File:" %>
+    <%= form.file_field :file, accept: ".csv" %>
+</div>
+<div>
+    <%= form.submit "Upload", class: "upload-button" %>
+</div>
+<% end %>
+
+<h2>Available Rosters</h2>
+<% if @rosters.any? %>
+  <ul>
+    <% @rosters.each do |roster| %>
+      <li><%= link_to "#{roster.name} #{roster.number} #{roster.section}", roster_path(roster) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No rosters available. Upload a CSV file to add a new roster.</p>
+<% end %>
+
+<%= link_to "Back to Home", root_path %>

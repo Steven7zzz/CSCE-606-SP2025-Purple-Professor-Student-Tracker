@@ -1,3 +1,4 @@
 class Student < ApplicationRecord
-    validates :first_name, :last_name, :major, :email, presence: true
+    has_many :enrollments
+    has_many :courses, through: :enrollments
 end
