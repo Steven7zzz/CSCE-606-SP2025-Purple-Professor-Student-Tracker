@@ -1,0 +1,71 @@
+<h1><%= link_to "Roster: #{params[:id]}", course_path(params[:id]) %></h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            <%= link_to "First Name", roster_path(sort: 'first_name', order: @sort == 'first_name' && @order == 'asc' ? 'desc' : 'asc') %>
+            <% if @sort == 'first_name' %>
+            <% if @order == 'asc' %>
+                ▼
+            <% else %>
+                ▲
+            <% end %>
+            <% end %>
+        </th>
+        <th>
+            <%= link_to "Last Name", roster_path(sort: 'last_name', order: @sort == 'last_name' && @order == 'asc' ? 'desc' : 'asc') %>
+            <% if @sort == 'last_name' %>
+            <% if @order == 'asc' %>
+                ▼
+            <% else %>
+                ▲
+            <% end %>
+            <% end %>
+        </th>
+        <th>
+            <%= link_to "UIN", roster_path(sort: 'uin', order: @sort == 'uin' && @order == 'asc' ? 'desc' : 'asc') %>
+            <% if @sort == 'uin' %>
+            <% if @order == 'asc' %>
+                ▼
+            <% else %>
+                ▲
+            <% end %>
+            <% end %>
+        </th>
+        <th>
+            <%= link_to "Major", roster_path(sort: 'major', order: @sort == 'major' && @order == 'asc' ? 'desc' : 'asc') %>
+            <% if @sort == 'major' %>
+            <% if @order == 'asc' %>
+                ▼
+            <% else %>
+                ▲
+            <% end %>
+            <% end %>
+        </th>
+        <th>
+            <%= link_to "Email", roster_path(sort: 'email', order: @sort == 'email' && @order == 'asc' ? 'desc' : 'asc') %>
+            <% if @sort == 'email' %>
+            <% if @order == 'asc' %>
+                ▼
+            <% else %>
+                ▲
+            <% end %>
+            <% end %>
+        </th>
+    </tr>
+    </thead>
+  <tbody>
+    <% @course_students.each do |student| %>
+      <tr>
+        <td><%= link_to student.first_name, student_path(student) %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.uin %></td>
+        <td><%= student.major %></td>
+        <td><%= student.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back to Rosters", rosters_path %>

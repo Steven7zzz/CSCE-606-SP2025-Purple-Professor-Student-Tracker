@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  resources :student_rosters do
+  resources :pt_enrollments
+  resources :peer_teachers
+  resources :enrollments
+  resources :courses
+  resources :students
+  resources :rosters do
     collection { post :import }
   end
 
 
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :students
-  resources :teachers do
-    collection { post :import }
-  end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

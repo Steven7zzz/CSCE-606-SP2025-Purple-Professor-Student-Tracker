@@ -1,0 +1,12 @@
+<% content_for :title, "Editing pt enrollment" %>
+
+<h1>Editing pt enrollment</h1>
+
+<%= render "form", pt_enrollment: @pt_enrollment %>
+
+<br>
+
+<div>
+  <%= link_to "Show this pt enrollment", @pt_enrollment %> |
+  <%= link_to "Back to pt enrollments", pt_enrollments_path %>
+</div>

@@ -1,0 +1,11 @@
+<% content_for :title, "New enrollment" %>
+
+<h1>New enrollment</h1>
+
+<%= render "form", enrollment: @enrollment %>
+
+<br>
+
+<div>
+  <%= link_to "Back to enrollments", enrollments_path %>
+</div>
