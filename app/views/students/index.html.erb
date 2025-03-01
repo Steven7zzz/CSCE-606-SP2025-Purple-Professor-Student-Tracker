@@ -4,26 +4,55 @@
 
 <% sort_class = "sorting_column_" + @sorting_type %>
 
+
+<style>
+  table {
+    table-layout: fixed;
+    width: 30%;
+    border-collapse: collapse;
+    border: 3px solid black;
+
+    th {
+      background-color: cfcfcf;
+      color: black;
+      border-bottom: 3px solid black;
+      padding: 6px;
+    }
+    tr:hover {background-color: #cfcfcf;}
+    tr {
+      border-bottom: 1px solid #ddd;
+      hover {background-color: #cfcfcf;}
+    }
+  }
+</style>
+
+
 <div id="students">
   <table>
     <thead>
       <tr>
-        <th class="<%= sort_class if @sorting_column == 'first_name' %>">
-          <% if @sorting_column == 'first_name' && @sorting_type == 'asc' %>
-            <%= link_to 'First Name ↑', students_path(sort: 'first_name', direction: 'desc') %>
-          <% elsif @sorting_column == 'first_name' && @sorting_type == 'desc' %>          
-            <%= link_to 'First Name ↓', students_path(sort: 'first_name', direction: 'asc') %>
-         <% else %>
-           <%= link_to 'First Name', students_path(sort: 'first_name', direction: 'desc') %>
-          <% end %>
-        </th>
+        <th>UIN</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Major</th>
+        <th>Email</th>
       </tr>
     </thead>
+    
     <tbody>
       <% @students.each do |student| %>
         <tr>
+          <td><%= student.uin %></td>
+          <td><%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td><%= student.major %></td>
+          <td><%= student.email %></td>
+
+          <!--
           <td class="<%= sort_class if @sorting_column == 'first_name' %>"><%= link_to student.first_name, student %></td>
-        </tr>
+          -->
+
+          </tr>
       <% end %>
     </tbody>
   </table>
