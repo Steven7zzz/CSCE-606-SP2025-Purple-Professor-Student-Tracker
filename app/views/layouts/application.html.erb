@@ -22,6 +22,18 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <p>Welcome, <%= current_user.email %></p>
+
+      <%= link_to "Manage Users", users_path, class: "btn btn-info" %>
+
+      <form action="<%= destroy_user_session_path %>" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :_method, "delete" %>
+        <%= submit_tag "Sign Out", class: "btn btn-danger" %>
+      </form>
+
+      <% end %>
     <%= yield %>
   </body>
 </html>

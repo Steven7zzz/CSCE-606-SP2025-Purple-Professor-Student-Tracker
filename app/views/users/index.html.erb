@@ -1,0 +1,23 @@
+<h2>Manage Users</h2>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td>
+        <% unless user == current_user %>
+          <%= button_to "Remove", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <% else %>
+          <span>You can't delete yourself</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add New User", new_user_path, class: "btn btn-primary" %>
+<%= link_to "Back to Home", root_path %>
