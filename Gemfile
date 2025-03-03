@@ -61,3 +61,7 @@ group :test do
 end
 
 # gem 'browser'
+
+gem 'devise'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
