@@ -22,6 +22,12 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
 

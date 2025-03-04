@@ -1,14 +1,14 @@
 <h2>Add New User</h2>
 
-<%= form_with model: @user, local: true do |form| %>
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
+<%= form_with(model: @user, url: users_path, method: :post) do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true %>
   </div>
-
-  <div class="actions">
-    <%= form.submit "Add User", class: "btn btn-success" %>
+  <div>
+    <%= f.submit "Add User" %>
   </div>
 <% end %>
 
 <%= link_to "Back to Users", users_path, class: "btn btn-secondary" %>
+
