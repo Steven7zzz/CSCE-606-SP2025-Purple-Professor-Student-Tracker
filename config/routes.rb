@@ -7,17 +7,17 @@ Rails.application.routes.draw do
   resources :rosters do
     collection { post :import }
   end
-  
-  devise_for :users, 
-             controllers: { omniauth_callbacks: 'users/omniauth_callbacks' },
-             skip: [:registrations]
-             
+
+  devise_for :users,
+             controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
+             skip: [ :registrations ]
+
 
   devise_scope :user do
-    get 'users/auth/failure', to: 'users/omniauth_callbacks#failure'
+    get "users/auth/failure", to: "users/omniauth_callbacks#failure"
   end
 
-  resources :users, only: [:index, :new, :create, :destroy]
+  resources :users, only: [ :index, :new, :create, :destroy ]
 
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

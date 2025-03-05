@@ -42,10 +42,10 @@ RSpec.describe 'UsersController', type: :request do
     it 'renders the new template if user creation fails' do
       expect {
         post users_path, params: empty_email
-      }.not_to change(User, :count) 
+      }.not_to change(User, :count)
 
-      expect(response).to have_http_status(:unprocessable_entity) 
-      expect(response.body).to include('Add New User') 
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response.body).to include('Add New User')
     end
 
     it 'ignores unpermitted parameters' do
@@ -53,7 +53,7 @@ RSpec.describe 'UsersController', type: :request do
       new_user = User.find_by(email: 'invalid@example.com')
 
       expect(new_user).not_to be_nil
-      expect(new_user.valid_password?('newpassword')).to be_falsey 
+      expect(new_user.valid_password?('newpassword')).to be_falsey
     end
   end
 

@@ -2,9 +2,9 @@
 require 'spec_helper'
 require 'simplecov'
 SimpleCov.start 'rails' do
-  add_filter "/spec/"   
+  add_filter "/spec/"
   add_filter "/config/"
-  add_filter "/vendor/" 
+  add_filter "/vendor/"
 end
 
 puts "SimpleCov is running. Report will be in coverage/index.html"
@@ -86,4 +86,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-

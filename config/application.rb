@@ -14,7 +14,7 @@ require "action_view/railtie"
 # require "action_cable/engine"
 require "rails/test_unit/railtie"
 
-require 'dotenv'
+require "dotenv"
 Dotenv.load
 
 # Require the gems listed in Gemfile, including any gems

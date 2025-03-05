@@ -55,7 +55,7 @@ RSpec.describe 'OmniauthCallbacks', type: :request do
   describe 'GET /users/auth/failure' do
     it 'redirects to sign-in page with an alert' do
       get '/users/auth/failure'
-  
+
       expect(response).to redirect_to(new_user_session_path)
       follow_redirect!
       expect(response.body).to include('Google authentication failed.')
