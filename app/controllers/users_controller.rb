@@ -16,13 +16,12 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, notice: "User added successfully."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-    Rails.logger.debug "UsersController#destroy was triggered with params: #{params.inspect}"
-    user = User.find(params[:id]) # This is where it crashes
+    user = User.find(params[:id])
     if user == current_user
       redirect_to users_path, alert: "You can't delete yourself!"
     else

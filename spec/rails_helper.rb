@@ -2,9 +2,9 @@
 require 'spec_helper'
 require 'simplecov'
 SimpleCov.start 'rails' do
-  add_filter "/spec/"   # 过滤掉 spec 目录
-  add_filter "/config/" # 过滤掉 config 目录
-  add_filter "/vendor/" # 过滤掉 gem 相关代码
+  add_filter "/spec/"
+  add_filter "/config/"
+  add_filter "/vendor/"
 end
 
 puts "SimpleCov is running. Report will be in coverage/index.html"
@@ -42,6 +42,8 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
