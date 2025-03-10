@@ -2,9 +2,42 @@
 
 <h1>Editing peer teacher</h1>
 
-<%= render "form", peer_teacher: @peer_teacher %>
+<%= form_with(model: @peer_teacher, local: true) do |form| %>
+  <% if @peer_teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@peer_teacher.errors.count, "error") %> prohibited this peer teacher from being saved:</h2>
+      <ul>
+        <% @peer_teacher.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<br>
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uin %>
+    <%= form.text_field :uin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <div>
   <%= link_to "Show this peer teacher", @peer_teacher %> |

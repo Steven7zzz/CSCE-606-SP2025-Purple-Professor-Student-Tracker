@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @peer_teacher %>
+<h1>Peer Teacher Details</h1>
+
+<p><strong>First Name:</strong> <%= @peer_teacher.first_name %></p>
+<p><strong>Last Name:</strong> <%= @peer_teacher.last_name %></p>
+<p><strong>UIN:</strong> <%= @peer_teacher.uin %></p>
+<p><strong>Email:</strong> <%= @peer_teacher.email %></p>
 
 <div>
   <%= link_to "Edit this peer teacher", edit_peer_teacher_path(@peer_teacher) %> |
