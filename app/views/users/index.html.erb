@@ -33,5 +33,12 @@
   <div class="button-container">
     <%= link_to "Add New User", new_user_path, class: "btn btn-light-green" %>
     <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+
+    <form action="<%= destroy_user_session_path %>" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :_method, "delete" %>
+        <%= submit_tag "Sign Out", class: "btn btn-danger" %>
+    </form>
   </div>
+
 </div>
