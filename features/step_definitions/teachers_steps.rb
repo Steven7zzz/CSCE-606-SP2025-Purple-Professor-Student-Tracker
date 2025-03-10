@@ -12,23 +12,19 @@ Given('the following teachers exist:') do |table|
 end
 end
 
-When('I am on the teachers index page') do
-  visit teachers_path
+When('I am on the peer teachers index page') do
+  visit peer_teachers_path
 end
 
 Then('I should see {string}') do |text|
   expect(page).to have_content(text)
 end
 
-When('I click on {string}') do |element_text|
-  if page.has_link?(element_text)
-    click_link element_text
-  elsif page.has_button?(element_text)
-    click_button element_text
-  else
-    raise "Could not find a link or button with text '#{element_text}'"
-  end
+When("I click on {string}") do |button_text|
+  expect(page).to have_link(button_text, wait: 5)  
+  click_link button_text
 end
+
 
 Then('I should be on the homepage') do
   expect(current_path).to eq(root_path)
@@ -39,8 +35,8 @@ Given('I am on the homepage') do
 end
 
 
-Then('I should be on the teachers index page') do
-  expect(current_path).to eq(teachers_path)
+Then("I should be on the teachers index page") do
+  expect(current_path).to eq(peer_teachers_path) 
 end
 
 
@@ -81,4 +77,8 @@ end
 Then(/^I should not see "(.*)" on the teachers index page$/) do |name|
   visit teachers_path
   expect(page).not_to have_content(name)
+end
+
+Given("I am on the Peer Teachers index page") do
+  visit peer_teachers_path  
 end

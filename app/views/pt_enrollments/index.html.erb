@@ -1,16 +1,38 @@
 <p style="color: green"><%= notice %></p>
+<% content_for :title, "PT Enrollments" %>
 
-<% content_for :title, "Pt enrollments" %>
+<div class="container">
+  <h1 class="page-title"> Peer Teacher Enrollments</h1>
 
-<h1>Pt enrollments</h1>
-
-<div id="pt_enrollments">
-  <% @pt_enrollments.each do |pt_enrollment| %>
-    <%= render pt_enrollment %>
-    <p>
-      <%= link_to "Show this pt enrollment", pt_enrollment %>
-    </p>
+  <% if @pt_enrollments.present? %>
+    <table class="course-table"> 
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Peer Teacher</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pt_enrollments.each do |pt_enrollment| %>
+          <tr>
+            <td><%= pt_enrollment.course.name %></td>
+            <td><%= pt_enrollment.peer_teacher.first_name %> <%= pt_enrollment.peer_teacher.last_name %></td>
+            <td>
+              <%= link_to "View", pt_enrollment_path(pt_enrollment), class: "btn btn-light-blue btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="no-pt-enrollments">No peer teacher enrollments available.</p>
   <% end %>
+
+
+  <div class="button-container">
+    <%= link_to "New PT Enrollment", new_pt_enrollment_path, class: "btn btn-light-green" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+  </div>
 </div>
 
-<%= link_to "New pt enrollment", new_pt_enrollment_path %>
