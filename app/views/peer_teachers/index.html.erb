@@ -1,16 +1,39 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Peer Teachers" %>
 
-<% content_for :title, "Peer teachers" %>
+<div class="container">
+  <h1 class="page-title">Peer Teachers</h1>
 
-<h1>Peer teachers</h1>
-
-<div id="peer_teachers">
-  <% @peer_teachers.each do |peer_teacher| %>
-    <%= render peer_teacher %>
-    <p>
-      <%= link_to "Show this peer teacher", peer_teacher %>
-    </p>
+  <% if @peer_teachers.present? %>
+    <table class="course-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>UIN</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @peer_teachers.each do |peer_teacher| %>
+          <tr>
+            <td><%= peer_teacher.first_name %></td>
+            <td><%= peer_teacher.last_name %></td>
+            <td><%= peer_teacher.uin %></td>
+            <td><%= peer_teacher.email %></td>
+            <td>
+              <%= link_to "View", peer_teacher_path(peer_teacher), class: "btn btn-light-blue btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="no-peer-teachers">No peer teachers available.</p>
   <% end %>
-</div>
 
-<%= link_to "New peer teacher", new_peer_teacher_path %>
+  
+    <%= link_to "New Peer Teacher", new_peer_teacher_path, class: "btn btn-light-green" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-light-grey" %>
+
+</div>

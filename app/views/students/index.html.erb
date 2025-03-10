@@ -1,16 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Students" %>
 
-<h1>Students</h1>
+<div class="container">
+  <h1 class="page-title">Students</h1>
 
-<div id="students">
-  <% @students.each do |student| %>
-    <%= render student %>
-    <p>
-      <%= link_to "Show this student", student %>
-    </p>
+  <% if @students.present? %>
+    <table class="course-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>UIN</th>
+          <th>Major</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.first_name %></td>
+            <td><%= student.last_name %></td>
+            <td><%= student.uin %></td>
+            <td><%= student.major %></td>
+            <td><%= student.email %></td>
+            <td>
+              <%= link_to "View", student_path(student), class: "btn btn-light-blue btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="no-students">No students available.</p>
   <% end %>
+
+
+  <div class="button-container">
+    <%= link_to "New Student", new_student_path, class: "btn btn-light-green" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+  </div>
 </div>
 
-<%= link_to "New student", new_student_path %>

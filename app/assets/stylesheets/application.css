@@ -17,3 +17,252 @@
     font-weight: bold;
     color: #39d880;
   } */
+/* app/assets/stylesheets/application.css */
+
+
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.page-title {
+  text-align: center;
+  color: #343a40;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #6c757d;
+  font-size: 18px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.dashboard-section {
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  color: #3d3d3d;
+  font-weight: bold;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+.btn-light-blue {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.btn-light-green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.btn-light-yellow {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.btn-light-purple {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+}
+
+.btn-light-gray {
+  background-color: #eceff1;
+  color: #37474f;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.course-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+
+.course-table thead {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  font-weight: bold;
+}
+
+.course-table th, .course-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.course-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+
+.btn-light-blue {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.btn-light-green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.btn-light-gray {
+  background-color: #eceff1;
+  color: #37474f;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+.form-control {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.detail-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: #37474f;
+}
+
+.detail-value {
+  color: #1565c0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-light-blue {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.btn-light-gray {
+  background-color: #eceff1;
+  color: #37474f;
+}
+
+.btn-light-red {
+  background-color: #ffebee;
+  color: #c62828;
+}

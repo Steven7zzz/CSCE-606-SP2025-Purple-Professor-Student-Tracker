@@ -1,15 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Peer Teacher Details" %>
 
-<h1>Peer Teacher Details</h1>
+<div class="container">
+  <h1 class="page-title">Peer Teacher Details</h1>
 
-<p><strong>First Name:</strong> <%= @peer_teacher.first_name %></p>
-<p><strong>Last Name:</strong> <%= @peer_teacher.last_name %></p>
-<p><strong>UIN:</strong> <%= @peer_teacher.uin %></p>
-<p><strong>Email:</strong> <%= @peer_teacher.email %></p>
+  <table class="details-table">
+    <tr>
+      <th>First Name:</th>
+      <td><%= @peer_teacher.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last Name:</th>
+      <td><%= @peer_teacher.last_name %></td>
+    </tr>
+    <tr>
+      <th>UIN:</th>
+      <td><%= @peer_teacher.uin %></td>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td><%= @peer_teacher.email %></td>
+    </tr>
+  </table>
 
-<div>
-  <%= link_to "Edit this peer teacher", edit_peer_teacher_path(@peer_teacher) %> |
-  <%= link_to "Back to peer teachers", peer_teachers_path %>
-
-  <%= button_to "Destroy this peer teacher", @peer_teacher, method: :delete %>
+  <div class="button-container">
+    <%= link_to "Edit Peer Teacher", edit_peer_teacher_path(@peer_teacher), class: "btn btn-light-blue" %>
+    <%= link_to "Back to Peer Teachers", peer_teachers_path, class: "btn btn-light-gray" %>
+    <%= button_to "Delete Peer Teacher", @peer_teacher, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light-red" %>
+  </div>
 </div>
+

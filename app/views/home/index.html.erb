@@ -1,3 +1,46 @@
-<h1>Home#index</h1>
-<p>CSCE-606-SP2025-Purple-Professor-Student-Tracker</p>
-<%= link_to "Rosters", rosters_path%>
+<% content_for :title, "Dashboard" %>
+
+<div class="container">
+  <h1 class="page-title">CSCE-606 Purple Professor Student Tracker</h1>
+  <p class="subtitle">Manage courses, students, peer teachers, and enrollments efficiently</p>
+
+
+  <div class="dashboard-section course-section">
+    <h2>Course Management</h2>
+    <div class="button-group">
+      <%= link_to "View Courses", courses_path, class: "btn btn-light-blue" %>
+      <%= link_to "Enrollments", enrollments_path, class: "btn btn-light-blue" %>
+    </div>
+  </div>
+
+
+  <div class="dashboard-section student-section">
+    <h2>Student & Teacher Management</h2>
+    <div class="button-group">
+      <%= link_to "View Students", students_path, class: "btn btn-light-green" %>
+      <%= link_to "Peer Teachers", peer_teachers_path, class: "btn btn-light-green" %>
+    </div>
+  </div>
+
+
+  <div class="dashboard-section peer-section">
+    <h2>Peer Teacher Course Assignments</h2>
+    <div class="button-group">
+      <%= link_to "Peer Teacher Enrollments", pt_enrollments_path, class: "btn btn-light-yellow" %>
+    </div>
+  </div>
+
+  <div class="dashboard-section import-section">
+    <h2>Import Data</h2>
+    <div class="button-group">
+      <%= link_to "Upload Rosters (CSV)", rosters_path, class: "btn btn-light-purple" %>
+    </div>
+  </div>
+
+  <div class="dashboard-section admin-section">
+    <h2>🔑 Login & Users</h2>
+    <div class="button-group">
+      <%= link_to "Manage Users", users_path, class: "btn btn-light-gray" %>
+    </div>
+  </div>
+</div>

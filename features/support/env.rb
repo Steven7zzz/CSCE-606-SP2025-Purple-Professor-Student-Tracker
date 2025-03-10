@@ -58,3 +58,12 @@ require 'cucumber/rails'
 require 'capybara/cucumber'
 
 Capybara.default_driver = :selenium_chrome_headless
+
+require 'warden'
+
+World Warden::Test::Helpers
+Warden.test_mode!
+
+After do
+  Warden.test_reset!  
+end

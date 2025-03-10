@@ -9,3 +9,7 @@ end
 Then("I should see a successful response") do
   expect(page).to have_content("Students")
 end
+
+Given("I am on the students index page") do
+  visit students_path
+end
