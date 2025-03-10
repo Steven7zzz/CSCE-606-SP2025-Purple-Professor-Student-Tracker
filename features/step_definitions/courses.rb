@@ -3,7 +3,6 @@ Given("I am on the courses index page") do
 end
 
 When("I click on {string} in the courses page") do |button_text|
-  puts page.html  # ✅ 打印页面 HTML，检查 "Back to Home" 是否真的存在
   expect(page).to have_link(button_text, wait: 5)
   click_link button_text
 end
