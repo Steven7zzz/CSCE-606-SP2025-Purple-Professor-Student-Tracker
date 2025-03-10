@@ -100,8 +100,61 @@ body {
   color: #37474f;
 }
 
-/* 🌿 按钮悬停效果 */
 .btn:hover {
   transform: scale(1.03);
   opacity: 0.9;
+}
+
+.course-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+
+.course-table thead {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  font-weight: bold;
+}
+
+.course-table th, .course-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.course-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+
+.btn-light-blue {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.btn-light-green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.btn-light-gray {
+  background-color: #eceff1;
+  color: #37474f;
 }
