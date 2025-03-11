@@ -1,88 +1,150 @@
 require 'rails_helper'
 
 RSpec.describe PeerTeachersController, type: :controller do
-  let(:valid_attributes) do
-    { first_name: 'John', last_name: 'Smith', uin: '123456789', email: 'johnsmith@tamu.edu' }
-  end
-
-  let!(:peer_teacher) { PeerTeacher.create!(valid_attributes) }
-
-  before do
-    allow(controller).to receive(:authenticate_user!).and_return(true)
-  end
-
-  describe 'GET #index' do
-    it 'returns a success response' do
-      get :index
-      expect(response).to be_successful
+    let(:user) { create(:user) }
+    let(:valid_attributes) { attributes_for(:peer_teacher) }
+    let(:invalid_attributes) { attributes_for(:peer_teacher, email: nil) }
+  
+    it "creates a valid PeerTeacher" do
+        peer_teacher = FactoryBot.build(:peer_teacher)
+        expect(peer_teacher).to be_valid
     end
-  end
 
-  describe 'GET #show' do
-    it 'returns a success response' do
-      get :show, params: { id: peer_teacher.to_param }
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET #new' do
-    it 'returns a success response' do
-      get :new
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET #edit' do
-    it 'returns a success response' do
-      get :edit, params: { id: peer_teacher.to_param }
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'POST #create' do
-    context 'with valid params' do
-      it 'creates a new Peer Teacher' do
-        expect do
-          post :create, params: { peer_teacher: valid_attributes }
-        end.to change(PeerTeacher, :count).by(1)
+  describe "POST #create" do
+    context "with valid parameters" do
+      it "creates a new PeerTeacher" do
+        expect {
+          post :create, params: { peer_teacher: attributes_for(:peer_teacher) }
+        }.to change(PeerTeacher, :count).by(1)
       end
 
-      it 'redirects to the created peer teacher' do
-        post :create, params: { peer_teacher: valid_attributes }
+      it "redirects to the created peer_teacher" do
+        post :create, params: { peer_teacher: attributes_for(:peer_teacher) }
         expect(response).to redirect_to(PeerTeacher.last)
       end
     end
+
+    context "with invalid parameters" do
+        it "does not create a new PeerTeacher" do
+          expect {
+            post :create, params: { peer_teacher: invalid_attributes }
+          }.not_to change(PeerTeacher, :count)
+  
+          expect(response).to render_template(:new)
+        end
+    end
+
+      it "renders the 'new' template" do
+        post :create, params: { peer_teacher: attributes_for(:peer_teacher, email: nil) }
+        expect(response).to render_template(:new)
+      end
+    end
   end
 
-  describe 'PUT #update' do
-    context 'with valid params' do
-      let(:new_attributes) do
-        { first_name: 'Jonathan' }
+  it "assigns @peer_teachers" do
+    create(:peer_teacher)
+
+    get :index
+    expect(assigns(:peer_teachers)).to eq(PeerTeacher.all)
+  end
+
+  describe "GET #show" do
+    it "returns a successful response" do
+      get :show, params: { id: peer_teacher.id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it "assigns @peer_teacher" do
+      get :show, params: { id: peer_teacher.id }
+      expect(assigns(:peer_teacher)).to eq(peer_teacher)
+    end
+  end
+
+  describe "GET #new" do
+    it "returns a successful response" do
+      get :new
+      expect(response).to have_http_status(:success)
+    end
+
+    it "assigns a new PeerTeacher" do
+      get :new
+      expect(assigns(:peer_teacher)).to be_a_new(PeerTeacher)
+    end
+  end
+
+  describe "POST #create" do
+    context "with valid parameters" do
+      it "creates a new PeerTeacher" do
+        expect {
+          post :create, params: { peer_teacher: attributes_for(:peer_teacher) }
+        }.to change(PeerTeacher, :count).by(1)
       end
 
-      it 'updates the requested peer teacher' do
-        put :update, params: { id: peer_teacher.to_param, peer_teacher: new_attributes }
+      it "redirects to the created peer_teacher" do
+        post :create, params: { peer_teacher: attributes_for(:peer_teacher) }
+        expect(response).to redirect_to(PeerTeacher.last)
+      end
+    end
+
+    context "with invalid parameters" do
+      it "does not create a new PeerTeacher" do
+        expect {
+          post :create, params: { peer_teacher: attributes_for(:peer_teacher, email: nil) }
+        }.not_to change(PeerTeacher, :count)
+      end
+
+      it "renders the 'new' template" do
+        post :create, params: { peer_teacher: attributes_for(:peer_teacher, email: nil) }
+        expect(response).to render_template(:new)
+      end
+    end
+  end
+
+  describe "GET #edit" do
+    it "returns a successful response" do
+      get :edit, params: { id: peer_teacher.id }
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "PATCH #update" do
+    context "with valid parameters" do
+      it "updates the requested peer_teacher" do
+        patch :update, params: { id: peer_teacher.id, peer_teacher: { first_name: "Updated Name" } }
         peer_teacher.reload
-        expect(peer_teacher.first_name).to eq('Jonathan')
+        expect(peer_teacher.first_name).to eq("Updated Name")
       end
 
-      it 'redirects to the peer teacher' do
-        put :update, params: { id: peer_teacher.to_param, peer_teacher: new_attributes }
+      it "redirects to the peer_teacher" do
+        patch :update, params: { id: peer_teacher.id, peer_teacher: { first_name: "Updated Name" } }
         expect(response).to redirect_to(peer_teacher)
       end
     end
-  end
 
-  describe 'DELETE #destroy' do
-    it 'destroys the requested peer teacher' do
-      expect do
-        delete :destroy, params: { id: peer_teacher.to_param }
-      end.to change(PeerTeacher, :count).by(-1)
+    context "with invalid parameters" do
+      it "does not update the peer_teacher" do
+        patch :update, params: { id: peer_teacher.id, peer_teacher: { email: nil } }
+        peer_teacher.reload
+        expect(peer_teacher.email).to eq("john.doe@example.com")
+      end
+
+      it "renders the 'edit' template" do
+        patch :update, params: { id: peer_teacher.id, peer_teacher: { email: nil } }
+        expect(response).to render_template(:edit)
+
+  describe "DELETE #destroy" do
+    it "destroys the requested peer_teacher" do
+      peer_teacher = create(:peer_teacher)
+      expect {
+        delete :destroy, params: { id: peer_teacher.id }
+      }.to change(PeerTeacher, :count).by(-1)
     end
 
-    it 'redirects to the peer teachers list' do
-      delete :destroy, params: { id: peer_teacher.to_param }
+    it "redirects to the peer_teachers list" do
+      peer_teacher = create(:peer_teacher)
+      delete :destroy, params: { id: peer_teacher.id }
       expect(response).to redirect_to(peer_teachers_path)
     end
   end
 end
+
