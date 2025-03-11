@@ -131,9 +131,6 @@ RSpec.describe PeerTeachersController, type: :controller do
       it "renders the 'edit' template" do
         patch :update, params: { id: peer_teacher.id, peer_teacher: { email: nil } }
         expect(response).to render_template(:edit)
-      end
-    end
-  end
 
   describe "DELETE #destroy" do
     it "destroys the requested peer_teacher" do
@@ -150,3 +147,4 @@ RSpec.describe PeerTeachersController, type: :controller do
     end
   end
 end
+
