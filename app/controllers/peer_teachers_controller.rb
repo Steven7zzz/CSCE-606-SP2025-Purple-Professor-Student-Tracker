@@ -27,9 +27,6 @@ class PeerTeachersController < ApplicationController
       if @peer_teacher.save
         format.html { redirect_to @peer_teacher, notice: "Peer teacher was successfully created." }
         format.json { render :show, status: :created, location: @peer_teacher }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @peer_teacher.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,9 +37,6 @@ class PeerTeachersController < ApplicationController
       if @peer_teacher.update(peer_teacher_params)
         format.html { redirect_to @peer_teacher, notice: "Peer teacher was successfully updated." }
         format.json { render :show, status: :ok, location: @peer_teacher }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @peer_teacher.errors, status: :unprocessable_entity }
       end
     end
   end

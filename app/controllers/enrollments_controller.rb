@@ -27,9 +27,6 @@ class EnrollmentsController < ApplicationController
       if @enrollment.save
         format.html { redirect_to @enrollment, notice: "Enrollment was successfully created." }
         format.json { render :show, status: :created, location: @enrollment }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,9 +37,6 @@ class EnrollmentsController < ApplicationController
       if @enrollment.update(enrollment_params)
         format.html { redirect_to @enrollment, notice: "Enrollment was successfully updated." }
         format.json { render :show, status: :ok, location: @enrollment }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
     end
   end
