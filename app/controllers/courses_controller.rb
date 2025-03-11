@@ -27,9 +27,6 @@ class CoursesController < ApplicationController
       if @course.save
         format.html { redirect_to @course, notice: "Course was successfully created." }
         format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,9 +37,6 @@ class CoursesController < ApplicationController
       if @course.update(course_params)
         format.html { redirect_to @course, notice: "Course was successfully updated." }
         format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
   end
