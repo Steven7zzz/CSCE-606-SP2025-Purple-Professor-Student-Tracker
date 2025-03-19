@@ -12,7 +12,7 @@ class RostersController < ApplicationController
     else
       flash[:alert] = "Please upload a valid CSV file."
     end
-    redirect_to rosters_path
+    redirect_to courses_path
   end
 
   def show
@@ -25,7 +25,7 @@ class RostersController < ApplicationController
     @sort = sort
     @order = order
 
-    course = Course.find(params[:id])
-    @course_students = course.students.order("#{sort} #{order}")
+    @course = Course.find(params[:id]) 
+    @course_students = @course.students.order("#{sort} #{order}")
   end
 end
