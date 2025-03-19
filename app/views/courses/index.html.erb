@@ -23,8 +23,8 @@
           <td><%= course.year %></td>
           <td><%= course.semester %></td>
           <td>
-            <%= link_to "View", course_path(course), class: "btn btn-light-blue btn-sm" %>
-          </td>
+            <%= link_to "View", roster_path(course.id), class: "btn btn-light-blue btn-sm" %>
+          </td>        
         </tr>
       <% end %>
     </tbody>

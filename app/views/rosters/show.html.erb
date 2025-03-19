@@ -1,4 +1,9 @@
-<h1><%= link_to "Roster: #{params[:id]}", course_path(params[:id]) %></h1>
+<h1>
+  <%= "Roster: #{@course.name} #{@course.number} Section #{@course.section}" %>
+</h1>
+
+<%= link_to "Back to Courses", courses_path %>
+<br></br>
 
 <table>
     <thead>
@@ -67,5 +72,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "Back to Rosters", rosters_path %>

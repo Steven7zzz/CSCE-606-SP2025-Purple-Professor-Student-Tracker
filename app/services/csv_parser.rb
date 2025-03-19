@@ -8,6 +8,12 @@ class CsvParser
     else
         raise "Filename format is incorrect"
     end
+
+    File.open(file.path, "r:bom|utf-8") do |f|
+      csv_content = f.read.gsub(/\r/, "").strip
+      File.write(file.path, csv_content)
+    end
+    
     CSV.foreach(file.path, headers: true) do |row|
       student_data = row.to_hash
       name = student_data["Name"]
