@@ -3,8 +3,10 @@
 <div class="container">
   <h1 class="page-title">Students</h1>
 
+  <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for names...">
+
   <% if @students.present? %>
-    <table class="course-table">
+    <table class="course-table", table id="dataTable">
       <thead>
         <tr>
           <th>First Name</th>
@@ -34,6 +36,28 @@
     <p class="no-students">No students available.</p>
   <% end %>
 
+    <script>
+        function searchTable() {
+            let input = document.getElementById("searchInput");
+            let filter = input.value.toLowerCase();
+            let table = document.getElementById("dataTable");
+            let rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let rowContainsFilter = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().includes(filter)) {
+                        rowContainsFilter = true;
+                        break;
+                    }
+                }
+
+                rows[i].style.display = rowContainsFilter ? "" : "none";
+            }
+        }
+    </script>  
 
   <div class="button-container">
     <%= link_to "New Student", new_student_path, class: "btn btn-light-green" %>
