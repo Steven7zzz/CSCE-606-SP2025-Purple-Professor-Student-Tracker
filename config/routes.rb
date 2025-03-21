@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
+  post "/import_pt_rosters", to: "pt_enrollments#import", as: "import_pt_rosters"
+
   devise_for :users,
              controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
              skip: [ :registrations ]

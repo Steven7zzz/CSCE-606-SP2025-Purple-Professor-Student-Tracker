@@ -3,6 +3,13 @@
 <div class="container">
   <h1 class="page-title">Students</h1>
 
+  <div class="button-container">
+    <%= link_to "New Student", new_student_path, class: "btn btn-light-green" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+  </div>
+
+  <br></br>
+
   <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for names..." style="display: block; margin: 0 auto;">
 
   <% if @students.present? %>
@@ -58,10 +65,5 @@
             }
         }
     </script>  
-
-  <div class="button-container">
-    <%= link_to "New Student", new_student_path, class: "btn btn-light-green" %>
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
-  </div>
 </div>
 

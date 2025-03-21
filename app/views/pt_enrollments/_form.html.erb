@@ -1,8 +1,7 @@
 <%= form_with(model: pt_enrollment) do |form| %>
   <% if pt_enrollment.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(pt_enrollment.errors.count, "error") %> prohibited this pt_enrollment from being saved:</h2>
-
+      <h2><%= pluralize(pt_enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
       <ul>
         <% pt_enrollment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,16 +11,31 @@
   <% end %>
 
   <div>
-    <%= form.label :Course_id, style: "display: block" %>
-    <%= form.text_field :Course_id %>
+    <%= form.label :course_id, "Course", style: "display: block" %>
+    <%= form.select :course_id, Course.all.map { |c| ["#{c.name} - #{c.number} - #{c.section}", c.id] }, { prompt: "Select a course" }, { class: "select2" } %>
   </div>
 
   <div>
-    <%= form.label :PeerTeacher_id, style: "display: block" %>
-    <%= form.text_field :PeerTeacher_id %>
+    <%= form.label :peer_teacher_id, "Peer Teacher", style: "display: block" %>
+    <%= form.select :peer_teacher_id, PeerTeacher.all.map { |pt| ["#{pt.first_name} #{pt.last_name}", pt.id] }, { prompt: "Select a peer teacher" }, { class: "select2" } %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+<!-- Include Select2 JS and CSS -->
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js", defer: true %>
+<%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" %>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    document.querySelectorAll('.select2').forEach(function(element) {
+      $(element).select2({
+        placeholder: "Search...",
+        allowClear: true
+      });
+    });
+  });
+</script>

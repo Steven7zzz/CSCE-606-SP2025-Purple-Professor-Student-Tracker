@@ -1,12 +1,11 @@
 <div id="<%= dom_id pt_enrollment %>">
   <p>
     <strong>Course:</strong>
-    <%= pt_enrollment.Course_id %>
+    <%= pt_enrollment.course.name %> (<%= pt_enrollment.course.number %>) - Section <%= pt_enrollment.course.section %>
   </p>
 
   <p>
-    <strong>Peerteacher:</strong>
-    <%= pt_enrollment.PeerTeacher_id %>
+    <strong>Peer Teacher:</strong>
+    <%= "#{pt_enrollment.peer_teacher.first_name} #{pt_enrollment.peer_teacher.last_name}" %>
   </p>
-
 </div>

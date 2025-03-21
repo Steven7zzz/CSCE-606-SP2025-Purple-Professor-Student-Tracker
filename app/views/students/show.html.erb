@@ -2,6 +2,47 @@
 
 <%= render @student %>
 
+<h2>Enrolled Courses</h2>
+<% if @student.courses.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Number</th>
+        <th>Section</th>
+        <th>Semester</th>
+        <th>Year</th>
+        <th>Grade</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @student.courses.each do |course| %>
+        <% enrollment = Enrollment.find_by(student_id: @student.id, course_id: course.id) %>
+        <tr>
+          <td><%= course.name %></td>
+          <td><%= course.number %></td>
+          <td><%= course.section %></td>
+          <td><%= course.semester %></td>
+          <td><%= course.year %></td>
+          <td><%= enrollment&.grade || "N/A" %></td>
+          <td>
+            <% if enrollment %>
+              <%= link_to "Edit Enrollment", edit_enrollment_path(enrollment), class: "btn btn-primary" %>
+            <% else %>
+              <span style="color: gray;">Not enrolled</span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>This student is not enrolled in any courses.</p>
+<% end %>
+
+<br>
+
 <div>
   <%= link_to "Edit this student", edit_student_path(@student) %> |
   <%= link_to "Back to students", students_path %>

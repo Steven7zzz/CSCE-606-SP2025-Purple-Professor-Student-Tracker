@@ -2,7 +2,6 @@
   <% if enrollment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
-
       <ul>
         <% enrollment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,17 +11,17 @@
   <% end %>
 
   <div>
-    <%= form.label :course_id, style: "display: block" %>
-    <%= form.text_field :course_id %>
+    <%= form.label :course_id, "Course", style: "display: block" %>
+    <%= form.select :course_id, Course.all.map { |c| [ "#{c.name} - #{c.number} - #{c.section}", c.id ] }, { prompt: "Select a course" }, { class: "select2" } %>
   </div>
 
   <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
+    <%= form.label :student_id, "Student", style: "display: block" %>
+    <%= form.select :student_id, Student.all.map { |s| [ "#{s.first_name} #{s.last_name}", s.id ] }, { prompt: "Select a student" }, { class: "select2" } %>
   </div>
 
   <div>
-    <%= form.label :grade, style: "display: block" %>
+    <%= form.label :grade, "Grade", style: "display: block" %>
     <%= form.text_field :grade %>
   </div>
 
@@ -30,3 +29,18 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<!-- Include Select2 JS and CSS -->
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js", defer: true %>
+<%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" %>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    document.querySelectorAll('.select2').forEach(function(element) {
+      $(element).select2({
+        placeholder: "Search...",
+        allowClear: true
+      });
+    });
+  });
+</script>

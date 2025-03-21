@@ -22,6 +22,8 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path, class: "btn btn-light-gray" %>
+
     <% flash.each do |type, message| %>
       <div class="alert alert-<%= type %>">
         <%= message %>
