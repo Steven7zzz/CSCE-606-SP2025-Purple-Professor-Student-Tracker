@@ -68,6 +68,6 @@ class PtEnrollmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pt_enrollment_params
-      params.expect(pt_enrollment: [ :Course_id, :PeerTeacher_id ])
+      params.require(:pt_enrollment).permit(:course_id, :peer_teacher_id)
     end
 end
