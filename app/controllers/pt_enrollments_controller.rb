@@ -51,6 +51,15 @@ class PtEnrollmentsController < ApplicationController
     end
   end
 
+  def import
+    begin
+      CsvPtParser.import(params[:file])
+      redirect_to pt_enrollments_path, notice: "CSV successfully imported!"
+    rescue => e
+      redirect_to pt_enrollments_path, alert: "Error: #{e.message}"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pt_enrollment
@@ -59,6 +68,6 @@ class PtEnrollmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pt_enrollment_params
-      params.expect(pt_enrollment: [ :Course_id, :PeerTeacher_id ])
+      params.require(:pt_enrollment).permit(:course_id, :peer_teacher_id)
     end
 end

@@ -1,4 +1,3 @@
-<p style="color: green"><%= notice %></p>
 <% content_for :title, "PT Enrollments" %>
 
 <div class="container">
@@ -9,6 +8,7 @@
       <thead>
         <tr>
           <th>Course</th>
+          <th>Number</th>
           <th>Peer Teacher</th>
           <th>Actions</th>
         </tr>
@@ -17,6 +17,7 @@
         <% @pt_enrollments.each do |pt_enrollment| %>
           <tr>
             <td><%= pt_enrollment.course.name %></td>
+            <td><%= pt_enrollment.course.number %></td>
             <td><%= pt_enrollment.peer_teacher.first_name %> <%= pt_enrollment.peer_teacher.last_name %></td>
             <td>
               <%= link_to "View", pt_enrollment_path(pt_enrollment), class: "btn btn-light-blue btn-sm" %>

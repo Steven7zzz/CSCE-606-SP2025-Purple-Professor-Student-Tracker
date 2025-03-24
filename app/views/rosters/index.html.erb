@@ -13,8 +13,21 @@
     </div>
   <% end %>
 
+  <h1>Upload a New PT Roster</h1>
+  <%= form_with url: import_pt_rosters_path, multipart: true, method: :post do |form| %>
+    <div class="form-group">
+      <%= form.label :file, "Upload CSV File:", class: "form-label" %>
+      <%= form.file_field :file, accept: ".csv", class: "form-control" %>
+    </div>
+    <div class="button-container">
+      <%= form.submit "Upload", class: "btn btn-light-blue" %>
+    </div>
+  <% end %>
+
+
   <div class="button-container">
     <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
   </div>
 </div>
+
 

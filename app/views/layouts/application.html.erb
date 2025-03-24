@@ -22,10 +22,10 @@
   </head>
 
   <body>
-    <% flash.each do |type, message| %>
-      <div class="alert alert-<%= type %>">
-        <%= message %>
-      </div>
+    <%= link_to "Home", root_path, class: "btn btn-light-gray" %>
+
+    <% flash.each do |key, message| %>
+      <p style="color: <%= key == "notice" ? "green" : "red" %>"><%= message %></p>
     <% end %>
 
     <%= yield %>
