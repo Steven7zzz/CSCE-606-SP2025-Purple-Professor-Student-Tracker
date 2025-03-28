@@ -18,30 +18,123 @@
     color: #39d880;
   } */
 /* app/assets/stylesheets/application.css */
+.top-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #500000;
+  color: white;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
 
+.tam-logo {
+  max-height: 60px;
+  width: auto;
+}
+
+.banner-right {
+  text-align: right;
+}
+
+.banner-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.banner-subtitle {
+  font-size: 16px;
+  margin: 0;
+}
+
+.campus-image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.campus-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.banner-subtitle {
+  font-size: 16px;
+  margin: 0;
+}
+.campus-image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.campus-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.about-section {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  margin: -60px auto 40px auto;  /* 拉到图像上边缘 */
+  width: 85%;
+  max-width: 900px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.about-section h2 {
+  color: #500000; /* Texas A&M Maroon */
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.maroon-divider {
+  width: 60px;
+  height: 6px;
+  background-color: #500000;
+  margin-bottom: 20px;
+}
+.campus-image-container {
+  width: 100%;
+  height: 360px; 
+  overflow: hidden;
+}
+
+.campus-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;  
+  display: block;
+}
+
+.about-section p {
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.6;
+}
 
 body {
-  background-color: #f9f9f9;
+  background-color: #fefefe;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .page-title {
-  text-align: center;
-  color: #343a40;
-  font-size: 32px;
-  font-weight: bold;
-  margin-top: 20px;
+  color: #500000;
 }
 
 .subtitle {
-  text-align: center;
-  color: #6c757d;
-  font-size: 18px;
-  margin-top: -10px;
-  margin-bottom: 30px;
+  color: #7b0000;
 }
+
 
 .dashboard-section {
   border-radius: 8px;
@@ -75,30 +168,18 @@ body {
   border: none;
 }
 
-.btn-light-blue {
-  background-color: #e3f2fd;
-  color: #1565c0;
+.btn-maroon {
+  background-color: #500000;
+  color: #ffffff;
 }
 
-.btn-light-green {
-  background-color: #e8f5e9;
-  color: #2e7d32;
+.btn-maroon:hover {
+  background-color: #3b0000;
+  color: #ffffff;
+  transform: scale(1.03);
+  opacity: 0.95;
 }
 
-.btn-light-yellow {
-  background-color: #fff9c4;
-  color: #f57f17;
-}
-
-.btn-light-purple {
-  background-color: #f3e5f5;
-  color: #6a1b9a;
-}
-
-.btn-light-gray {
-  background-color: #eceff1;
-  color: #37474f;
-}
 
 .btn:hover {
   transform: scale(1.03);
