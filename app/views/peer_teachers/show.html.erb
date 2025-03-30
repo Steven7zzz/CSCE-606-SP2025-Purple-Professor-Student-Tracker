@@ -23,9 +23,10 @@
   </table>
 
   <div class="button-container">
-    <%= link_to "Edit Peer Teacher", edit_peer_teacher_path(@peer_teacher), class: "btn btn-light-blue" %>
-    <%= link_to "Back to Peer Teachers", peer_teachers_path, class: "btn btn-light-gray" %>
-    <%= button_to "Delete Peer Teacher", @peer_teacher, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light-red" %>
+    <%= link_to "Edit Peer Teacher", edit_peer_teacher_path(@peer_teacher), class: "btn btn-maroon" %>
+    <%= button_to "Delete Peer Teacher", @peer_teacher, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-maroon" %>
+    <%= link_to "Back to Peer Teachers", peer_teachers_path, class: "btn btn-maroon" %>
+    
   </div>
 </div>
 

@@ -5,8 +5,8 @@
     <%= image_tag "TAM-Horz-Maroon.png", alt: "Texas A&M Logo", class: "tam-logo" %>
   </div>
   <div class="banner-right">
-    <p class="banner-title">Howdy</p>
-    <p class="banner-subtitle">Welcome to use the student tracker system!</p>
+    <p class="banner-title">Howdy !</p>
+    <p class="banner-subtitle">Welcome to use the "Purple Prof." student tracker system!</p>
   </div>
 </div>
 
@@ -15,57 +15,57 @@
 </div>
 
 <div class="about-section">
-  <h2>ABOUT THE STUDENT TRACKER</h2>
+  <h2>ABOUT THIS SYSTEM</h2>
   <div class="maroon-divider"></div>
   <p>
-    The Purple Professor Student Tracker is a custom-built system designed to support instructors in managing large-scale engineering courses. 
-    It provides seamless access to course rosters, student records, peer teacher assignments, and import tools—all in one place. 
-    Developed with usability in mind, this system makes administrative tasks efficient so educators can focus more on teaching.
+    The Purple Professor Student Tracker system is a custom-built system designed to support instructors in managing large-scale engineering courses. 
+    It provides seamless access to course rosters, student records, peer teacher assignments, and import data in one place. 
+    Developed with usability in mind, this system improves the efficiency of administrative tasks.
   </p>
 </div>
 
-
-<div class="container">
-  <h1 class="page-title">CSCE-606 Purple Professor Student Tracker</h1>
-  <p class="subtitle">Manage courses, students, peer teachers, and enrollments efficiently</p>
-
-
-  <div class="dashboard-section course-section">
-    <h2>Course Management</h2>
-    <div class="button-group">
-      <%= link_to "View Courses", courses_path, class: "btn btn-light-blue" %>
-      <%= link_to "Enrollments", enrollments_path, class: "btn btn-light-blue" %>
-    </div>
-  </div>
-
-
-  <div class="dashboard-section student-section">
-    <h2>Student & Teacher Management</h2>
-    <div class="button-group">
-      <%= link_to "View Students", students_path, class: "btn btn-light-green" %>
-      <%= link_to "Peer Teachers", peer_teachers_path, class: "btn btn-light-green" %>
-    </div>
-  </div>
-
-
-  <div class="dashboard-section peer-section">
-    <h2>Peer Teacher Course Assignments</h2>
-    <div class="button-group">
-      <%= link_to "Peer Teacher Enrollments", pt_enrollments_path, class: "btn btn-light-yellow" %>
-    </div>
-  </div>
-
-  <div class="dashboard-section import-section">
-    <h2>Import Data</h2>
-    <div class="button-group">
-      <%= link_to "Upload Rosters (CSV)", rosters_path, class: "btn btn-light-purple" %>
-    </div>
-  </div>
-
-  <div class="dashboard-section admin-section">
-    <h2>🔑 Login & Users</h2>
-    <div class="button-group">
-      <%= link_to "Manage Users", users_path, class: "btn btn-light-gray" %>
-    </div>
+<div class="section-divider-with-text">
+  <span>Navigation</span>
+</div>
+<div class="feature-grid">
+<div class="feature-card">
+  <%= image_tag "feature1.png", alt: "Course Management", class: "feature-img" %>
+  <h3>Course Management</h3>
+  <p class="feature-desc">View and edit course, grades and enrollment information in details.</p>
+  <div class="simple-link-row">
+    <%= link_to "View Courses &rsaquo;".html_safe, courses_path, class: "simple-link" %>
+    <%= link_to "Enrollments &rsaquo;".html_safe, enrollments_path, class: "simple-link" %>
   </div>
 </div>
+
+<div class="feature-card">
+  <%= image_tag "feature2.png", alt: "Personnel Management", class: "feature-img" %>
+  <h3>Personnel Management</h3>
+  <p class="feature-desc">Manually add, edit, or remove students and peer teachers.</p>
+  <div class="simple-link-row">
+    <%= link_to "Student Enrollments &rsaquo;".html_safe, students_path, class: "simple-link" %>
+    <%= link_to "Teacher Enrollments &rsaquo;".html_safe, peer_teachers_path, class: "simple-link" %>
+  </div>
+</div>
+
+<div class="feature-card">
+  <%= image_tag "feature3.png", alt: "Data Upload", class: "feature-img" %>
+  <h3>Data Upload</h3>
+  <p class="feature-desc">Batch import data using CSV roster files for courses, students and PTs.</p>
+  <div class="simple-link-row">
+    <%= link_to "Peer Teacher Enrollments &rsaquo;".html_safe, pt_enrollments_path, class: "simple-link" %>
+    <%= link_to "Upload Rosters &rsaquo;".html_safe, rosters_path, class: "simple-link" %>
+  </div>
+</div>
+ 
+</div>
+<hr class="section-divider">
+
+<div class="user-edit-link">
+  <%= link_to users_path do %>
+    <%= image_tag "user.svg", alt: "Edit Icon", class: "edit-icon" %>
+    Key and Users: Edit Your Information
+
+  <% end %>
+</div>
+

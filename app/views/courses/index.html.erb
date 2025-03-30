@@ -1,4 +1,4 @@
-<% content_for :title, "Courses" %>
+<% content_for :title, "Courses List" %>
 
 <div class="container">
   <h1 class="page-title"> Courses</h1>
@@ -23,8 +23,8 @@
           <td><%= course.year %></td>
           <td><%= course.semester %></td>
           <td>
-            <%= link_to "Edit", edit_course_path(course), class: "btn btn-light-blue btn-sm" %>
-            <%= link_to "View", roster_path(course.id), class: "btn btn-light-blue btn-sm" %>
+            <%= link_to "Edit", edit_course_path(course), class: "btn btn-maroon" %>
+            <%= link_to "View", roster_path(course.id), class: "btn btn-maroon" %>
           </td>        
         </tr>
       <% end %>
@@ -32,8 +32,8 @@
   </table>
 
   <div class="button-container">
-    <%= link_to "New Course", new_course_path, class: "btn btn-light-green" %>
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+    <%= link_to "New Course", new_course_path, class: "btn btn-maroon" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
   </div>
 </div>
 

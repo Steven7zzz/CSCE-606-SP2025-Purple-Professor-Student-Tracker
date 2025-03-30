@@ -3,10 +3,7 @@
 <div class="container">
   <h1 class="page-title">Students</h1>
 
-  <div class="button-container">
-    <%= link_to "New Student", new_student_path, class: "btn btn-light-green" %>
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
-  </div>
+  
 
   <br></br>
 
@@ -33,7 +30,7 @@
             <td><%= student.major %></td>
             <td><%= student.email %></td>
             <td>
-              <%= link_to "View", student_path(student), class: "btn btn-light-blue btn-sm" %>
+              <%= link_to "View", student_path(student), class: "btn btn-maroon" %>
             </td>
           </tr>
         <% end %>
@@ -66,4 +63,7 @@
         }
     </script>  
 </div>
-
+<div class="button-container">
+    <%= link_to "New Student", new_student_path, class: "btn btn-maroon" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
+  </div>

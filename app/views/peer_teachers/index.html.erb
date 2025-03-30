@@ -22,7 +22,7 @@
             <td><%= peer_teacher.uin %></td>
             <td><%= peer_teacher.email %></td>
             <td>
-              <%= link_to "View", peer_teacher_path(peer_teacher), class: "btn btn-light-blue btn-sm" %>
+              <%= link_to "View", peer_teacher_path(peer_teacher), class: "btn btn-maroon btn-sm" %>
             </td>
           </tr>
         <% end %>
@@ -32,8 +32,8 @@
     <p class="no-peer-teachers">No peer teachers available.</p>
   <% end %>
 
-  
-    <%= link_to "New Peer Teacher", new_peer_teacher_path, class: "btn btn-light-green" %>
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-grey" %>
-
+  <div class="button-container">
+    <%= link_to "New Peer Teacher", new_peer_teacher_path, class: "btn btn-maroon" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
+  </div>
 </div>

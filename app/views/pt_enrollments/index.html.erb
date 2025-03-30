@@ -20,7 +20,7 @@
             <td><%= pt_enrollment.course.number %></td>
             <td><%= pt_enrollment.peer_teacher.first_name %> <%= pt_enrollment.peer_teacher.last_name %></td>
             <td>
-              <%= link_to "View", pt_enrollment_path(pt_enrollment), class: "btn btn-light-blue btn-sm" %>
+              <%= link_to "View", pt_enrollment_path(pt_enrollment), class: "btn btn-maroon btn-sm" %>
             </td>
           </tr>
         <% end %>
@@ -32,8 +32,8 @@
 
 
   <div class="button-container">
-    <%= link_to "New PT Enrollment", new_pt_enrollment_path, class: "btn btn-light-green" %>
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+    <%= link_to "New PT Enrollment", new_pt_enrollment_path, class: "btn btn-maroon" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
   </div>
 </div>
 

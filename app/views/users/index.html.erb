@@ -17,7 +17,7 @@
             <td><%= user.email %></td>
             <td>
               <% unless user == current_user %>
-                <%= button_to "Remove", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light-red btn-sm" %>
+                <%= button_to "Remove", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-maroon" %>
               <% else %>
                 <span class="text-muted">You can't delete yourself</span>
               <% end %>
@@ -31,8 +31,8 @@
   <% end %>
 
   <div class="button-container">
-    <%= link_to "Add New User", new_user_path, class: "btn btn-light-green" %>
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+    <%= link_to "Add New User", new_user_path, class: "btn btn-maroon" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
 
     <form action="<%= destroy_user_session_path %>" method="post">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

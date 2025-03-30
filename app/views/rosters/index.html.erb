@@ -1,7 +1,4 @@
 <% content_for :title, "Rosters" %>
-<div class="logo-header">
-  <%= image_tag "TAM-Horz-Maroon.svg", alt: "Texas A&M Logo", class: "tam-logo" %>
-</div>
 
 
 <div class="container">
@@ -13,7 +10,7 @@
       <%= form.file_field :file, accept: ".csv", class: "form-control" %>
     </div>
     <div class="button-container">
-      <%= form.submit "Upload", class: "btn btn-light-blue" %>
+      <%= form.submit "Upload", class: "btn btn-maroon" %>
     </div>
   <% end %>
 
@@ -24,13 +21,13 @@
       <%= form.file_field :file, accept: ".csv", class: "form-control" %>
     </div>
     <div class="button-container">
-      <%= form.submit "Upload", class: "btn btn-light-blue" %>
+      <%= form.submit "Upload", class: "btn btn-maroon" %>
     </div>
   <% end %>
 
 
   <div class="button-container">
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
   </div>
 </div>
 
