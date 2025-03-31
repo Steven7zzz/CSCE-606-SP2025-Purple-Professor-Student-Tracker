@@ -1,17 +1,6 @@
-<div id="<%= dom_id enrollment %>">
-  <p>
-    <strong>Course:</strong>
-    <%= "#{enrollment.course.name} #{enrollment.course.number} #{enrollment.course.section}" %>
-  </p>
-
-  <p>
-    <strong>Student:</strong>
-    <%= "#{enrollment.student.first_name} #{enrollment.student.last_name}" %>
-  </p>
-
-  <p>
-    <strong>Grade:</strong>
-    <%= enrollment.grade || "N/A" %>
-  </p>
-
+<div id="<%= dom_id enrollment %>" class="course-info-box">
+  <p><strong>Course:</strong> <%= "#{enrollment.course.name} #{enrollment.course.number} #{enrollment.course.section}" %></p>
+  <p><strong>Student:</strong> <%= "#{enrollment.student.first_name} #{enrollment.student.last_name}" %></p>
+  <p><strong>Grade:</strong> <%= enrollment.grade || "N/A" %></p>
 </div>
+

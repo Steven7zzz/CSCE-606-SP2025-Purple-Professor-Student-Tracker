@@ -1,6 +1,6 @@
-<%= form_with(model: enrollment) do |form| %>
+<%= form_with(model: enrollment, html: { class: "course-form" }) do |form| %>
   <% if enrollment.errors.any? %>
-    <div style="color: red">
+    <div class="error-box">
       <h2><%= pluralize(enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
       <ul>
         <% enrollment.errors.each do |error| %>
@@ -10,25 +10,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :course_id, "Course", style: "display: block" %>
-    <%= form.select :course_id, Course.all.map { |c| [ "#{c.name} - #{c.number} - #{c.section}", c.id ] }, { prompt: "Select a course" }, { class: "select2" } %>
+  <div class="form-group">
+    <%= form.label :course_id, "Course" %>
+    <%= form.select :course_id, Course.all.map { |c| [ "#{c.name} - #{c.number} - #{c.section}", c.id ] }, 
+        { prompt: "Select a course" }, 
+        { class: "form-control select2" } %>
   </div>
 
-  <div>
-    <%= form.label :student_id, "Student", style: "display: block" %>
-    <%= form.select :student_id, Student.all.map { |s| [ "#{s.first_name} #{s.last_name}", s.id ] }, { prompt: "Select a student" }, { class: "select2" } %>
+  <div class="form-group">
+    <%= form.label :student_id, "Student" %>
+    <%= form.select :student_id, Student.all.map { |s| [ "#{s.first_name} #{s.last_name}", s.id ] }, 
+        { prompt: "Select a student" }, 
+        { class: "form-control select2" } %>
   </div>
 
-  <div>
-    <%= form.label :grade, "Grade", style: "display: block" %>
-    <%= form.text_field :grade %>
+  <div class="form-group">
+    <%= form.label :grade, "Grade" %>
+    <%= form.text_field :grade, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit "Save Enrollment", class: "btn btn-maroon" %>
   </div>
 <% end %>
+
 
 <!-- Include Select2 JS and CSS -->
 <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js", defer: true %>

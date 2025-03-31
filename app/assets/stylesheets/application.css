@@ -23,7 +23,7 @@
   align-items: center;
   background-color: #500000;
   color: white;
-  padding: 20px 40px;
+  padding: 10px 20px;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
@@ -61,25 +61,9 @@
   height: auto;
   display: block;
 }
-
-
-.banner-subtitle {
-  font-size: 16px;
-  margin: 0;
-}
-.campus-image-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.campus-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 .about-section {
   background-color: #ffffff;
-  padding: 40px 30px;
+  padding: 20px 20px;
   margin: -60px auto 40px auto;  
   width: 85%;
   max-width: 900px;
@@ -105,7 +89,7 @@
 }
 .campus-image-container {
   width: 100%;
-  height: 360px; 
+  height: 250px; 
   overflow: hidden;
 }
 
@@ -227,11 +211,6 @@ body {
   background-color: #ddd;
 }
 
-.button-container {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-}
 
 .btn {
   display: inline-block;
@@ -259,15 +238,8 @@ body {
 }
 
 
-
 .course-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
-}
-
-
-.button-container {
-  text-align: center;
-  margin-top: 20px;
 }
 
 .btn-sm {
@@ -276,16 +248,6 @@ body {
   border-radius: 4px;
 }
 
-
-.btn-light-blue {
-  background-color: #e3f2fd;
-  color: #1565c0;
-}
-
-.btn-light-green {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-}
 
 .btn-light-gray {
   background-color: #eceff1;
@@ -340,7 +302,6 @@ body {
 }
 
 
-
 .form-control:focus {
   border-color: #007bff;
   outline: none;
@@ -378,8 +339,9 @@ body {
 .button-container {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 1rem;
+  margin-top: 1rem;  
+  flex-wrap: wrap;   
 }
 
 .btn {
@@ -391,16 +353,6 @@ body {
   display: inline-block;
   cursor: pointer;
   border: none;
-}
-
-.btn-light-blue {
-  background-color: #e3f2fd;
-  color: #1565c0;
-}
-
-.btn-light-gray {
-  background-color: #eceff1;
-  color: #37474f;
 }
 
 
@@ -501,4 +453,88 @@ body {
 .edit-icon {
   width: 20px;
   height: 20px;
+}
+
+
+.course-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: sans-serif;
+}
+
+.course-form .form-group {
+  margin-bottom: 20px;
+}
+
+.course-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.course-form input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.course-form .form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.course-form input[type="submit"] {
+  background-color: #500000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.course-form input[type="submit"]:hover {
+  background-color: #720000;
+}
+
+.error-box {
+  background-color: #ffe5e5;
+  border: 1px solid #cc0000;
+  color: #cc0000;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.course-info-box {
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  padding: 20px 30px;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: sans-serif;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.course-info-box p {
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.action-button-box {
+  max-width: 500px;
+  margin: 10px auto 40px auto; 
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 20px; 
 }
