@@ -26,7 +26,10 @@
           <td><%= enrollment&.grade || "N/A" %></td>
           <td>
             <% if enrollment %>
-              <%= link_to "Edit Enrollment", edit_enrollment_path(enrollment), class: "btn btn-primary" %>
+            <div class="button-container">
+              <%= link_to "Edit Enrollment", edit_enrollment_path(enrollment), class: "btn btn-maroon" %>
+            
+            </div>
             <% else %>
               <span style="color: gray;">Not enrolled</span>
             <% end %>

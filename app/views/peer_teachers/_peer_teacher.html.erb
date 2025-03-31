@@ -1,22 +1,22 @@
-<div id="<%= dom_id peer_teacher %>">
-  <p>
-    <strong>First name:</strong>
-    <%= peer_teacher.first_name %>
-  </p>
+<div id="<%= dom_id peer_teacher %>" class="course-info-box">
+  <div class="detail-row">
+    <span class="detail-label">First name:</span>
+    <span class="detail-value"><%= peer_teacher.first_name %></span>
+  </div>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= peer_teacher.last_name %>
-  </p>
+  <div class="detail-row">
+    <span class="detail-label">Last name:</span>
+    <span class="detail-value"><%= peer_teacher.last_name %></span>
+  </div>
 
-  <p>
-    <strong>Uin:</strong>
-    <%= peer_teacher.uin %>
-  </p>
+  <div class="detail-row">
+    <span class="detail-label">UIN:</span>
+    <span class="detail-value"><%= peer_teacher.uin %></span>
+  </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= peer_teacher.email %>
-  </p>
-
+  <div class="detail-row">
+    <span class="detail-label">Email:</span>
+    <span class="detail-value"><%= peer_teacher.email %></span>
+  </div>
 </div>
+

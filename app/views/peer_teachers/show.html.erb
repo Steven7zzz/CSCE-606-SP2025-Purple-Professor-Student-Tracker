@@ -1,26 +1,34 @@
 <% content_for :title, "Peer Teacher Details" %>
+<div class="container" style="max-width: 800px; margin: 0 auto;">
+  <h1 class="page-title" style="text-align: center; margin-bottom: 30px;">Peer Teacher Details</h1>
 
-<div class="container">
-  <h1 class="page-title">Peer Teacher Details</h1>
-
-  <table class="details-table">
-    <tr>
-      <th>First Name:</th>
-      <td><%= @peer_teacher.first_name %></td>
-    </tr>
-    <tr>
-      <th>Last Name:</th>
-      <td><%= @peer_teacher.last_name %></td>
-    </tr>
-    <tr>
-      <th>UIN:</th>
-      <td><%= @peer_teacher.uin %></td>
-    </tr>
-    <tr>
-      <th>Email:</th>
-      <td><%= @peer_teacher.email %></td>
-    </tr>
+  <table class="course-table">
+    <thead>
+      <tr>
+        <th colspan="2">Information</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>First Name:</th>
+        <td><%= @peer_teacher.first_name %></td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td><%= @peer_teacher.last_name %></td>
+      </tr>
+      <tr>
+        <th>UIN:</th>
+        <td><%= @peer_teacher.uin %></td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td><%= @peer_teacher.email %></td>
+      </tr>
+    </tbody>
   </table>
+</div>
+
 
   <div class="button-container">
     <%= link_to "Edit Peer Teacher", edit_peer_teacher_path(@peer_teacher), class: "btn btn-maroon" %>
