@@ -24,7 +24,7 @@ RSpec.describe CsvParser do
     end
 
     let(:valid_file) do
-      double("file", original_filename: "CSCE100_100.csv", path: tempfile.path)
+      double("file", original_filename: "CSCE100_100_fall_24.csv", path: tempfile.path)
     end
 
     after do
@@ -43,6 +43,8 @@ RSpec.describe CsvParser do
       expect(course.name).to eq("CSCE")
       expect(course.number).to eq("100")
       expect(course.section).to eq("100")
+      expect(course.semester).to eq("Fall")
+      expect(course.year).to eq("2024")
 
       student = Student.last
       expect(student.first_name).to eq("John")
