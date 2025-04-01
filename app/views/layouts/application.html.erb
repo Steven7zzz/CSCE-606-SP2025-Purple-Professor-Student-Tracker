@@ -22,7 +22,17 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path, class: "btn btn-light-gray" %>
+    <div class="top-banner">
+      <div class="banner-left">
+        <%= link_to root_path do %>
+          <%= image_tag "TAM-Horz-Maroon.png", alt: "Texas A&M Logo", class: "tam-logo" %>
+        <% end %>
+      </div>
+      <div class="banner-right">
+        <p class="banner-title">Howdy !</p>
+        <p class="banner-subtitle">Welcome to use the "Purple Prof." student tracker system!</p>
+      </div>
+    </div>
 
     <% flash.each do |key, message| %>
       <p style="color: <%= key == "notice" ? "green" : "red" %>"><%= message %></p>

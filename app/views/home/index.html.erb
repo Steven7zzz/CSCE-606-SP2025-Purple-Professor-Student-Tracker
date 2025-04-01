@@ -1,22 +1,12 @@
 <% content_for :title, "Dashboard" %>
 
-<div class="top-banner">
-  <div class="banner-left">
-    <%= image_tag "TAM-Horz-Maroon.png", alt: "Texas A&M Logo", class: "tam-logo" %>
-  </div>
-  <div class="banner-right">
-    <p class="banner-title">Howdy !</p>
-    <p class="banner-subtitle">Welcome to use the "Purple Prof." student tracker system!</p>
-  </div>
-</div>
-
 
 <div class="section-divider-with-text">
   <span>Navigation</span>
 </div>
+
 <div class="feature-grid">
 <div class="feature-card">
-  <%= image_tag "feature1.png", alt: "Course Management", class: "feature-img" %>
   <h3>Course Management</h3>
   <p class="feature-desc">View and edit course, grades and enrollment information in details.</p>
   <div class="simple-link-row">
@@ -26,21 +16,19 @@
 </div>
 
 <div class="feature-card">
-  <%= image_tag "feature2.png", alt: "Enrollments Management", class: "feature-img" %>
-  <h3>Enrollments Management</h3>
+  <h3>Students and Peer Teacher Management</h3>
   <p class="feature-desc">Manually add, edit, or remove students and peer teachers.</p>
   <div class="simple-link-row">
     <%= link_to "Student  &rsaquo;".html_safe, students_path, class: "simple-link" %>
     <%= link_to "Peer Teachers  &rsaquo;".html_safe, peer_teachers_path, class: "simple-link" %>
+    <%= link_to "Peer Teacher Enrollments &rsaquo;".html_safe, pt_enrollments_path, class: "simple-link" %>  
   </div>
 </div>
 
 <div class="feature-card">
-  <%= image_tag "feature3.png", alt: "Data Upload", class: "feature-img" %>
   <h3>Data Upload</h3>
   <p class="feature-desc">Batch import data using CSV roster files for courses, students and PTs.</p>
   <div class="simple-link-row">
-    <%= link_to "Peer Teacher Enrollments &rsaquo;".html_safe, pt_enrollments_path, class: "simple-link" %>
     <%= link_to "Upload Rosters &rsaquo;".html_safe, rosters_path, class: "simple-link" %>
   </div>
 </div>
