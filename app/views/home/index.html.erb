@@ -10,19 +10,6 @@
   </div>
 </div>
 
-<div class="campus-image-container">
-  <%= image_tag "campus.png", alt: "Campus Background", class: "campus-img" %>
-</div>
-
-<div class="about-section">
-  <h2>ABOUT THIS SYSTEM</h2>
-  <div class="maroon-divider"></div>
-  <p>
-    The Purple Professor Student Tracker system is a custom-built system designed to support instructors in managing large-scale engineering courses. 
-    It provides seamless access to course rosters, student records, peer teacher assignments, and import data in one place. 
-    Developed with usability in mind, this system improves the efficiency of administrative tasks.
-  </p>
-</div>
 
 <div class="section-divider-with-text">
   <span>Navigation</span>
@@ -39,12 +26,12 @@
 </div>
 
 <div class="feature-card">
-  <%= image_tag "feature2.png", alt: "Personnel Management", class: "feature-img" %>
-  <h3>Personnel Management</h3>
+  <%= image_tag "feature2.png", alt: "Enrollments Management", class: "feature-img" %>
+  <h3>Enrollments Management</h3>
   <p class="feature-desc">Manually add, edit, or remove students and peer teachers.</p>
   <div class="simple-link-row">
-    <%= link_to "Student Enrollments &rsaquo;".html_safe, students_path, class: "simple-link" %>
-    <%= link_to "Teacher Enrollments &rsaquo;".html_safe, peer_teachers_path, class: "simple-link" %>
+    <%= link_to "Student  &rsaquo;".html_safe, students_path, class: "simple-link" %>
+    <%= link_to "Peer Teachers  &rsaquo;".html_safe, peer_teachers_path, class: "simple-link" %>
   </div>
 </div>
 
@@ -64,7 +51,7 @@
 <div class="user-edit-link">
   <%= link_to users_path do %>
     <%= image_tag "user.svg", alt: "Edit Icon", class: "edit-icon" %>
-    Key and Users: Edit Your Information
+    Users Management
 
   <% end %>
 </div>
