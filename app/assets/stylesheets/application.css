@@ -273,6 +273,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  align-items: center
 }
 
 
@@ -536,4 +537,9 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   padding: 0 20px; 
+}
+
+.container {
+  text-align: center;
+  margin: 0 auto;
 }
