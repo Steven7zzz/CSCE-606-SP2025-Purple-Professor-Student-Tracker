@@ -1,8 +1,7 @@
-<%= form_with(model: course) do |form| %>
+<%= form_with(model: course, html: { class: "course-form" }) do |form| %>
   <% if course.errors.any? %>
-    <div style="color: red">
+    <div class="error-box">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
       <ul>
         <% course.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,32 +10,33 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :number, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :number %>
     <%= form.text_field :number %>
   </div>
 
-  <div>
-    <%= form.label :section, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :section %>
     <%= form.text_field :section %>
   </div>
 
-  <div>
-    <%= form.label :year, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :year %>
     <%= form.text_field :year %>
   </div>
 
-  <div>
-    <%= form.label :semester, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :semester %>
     <%= form.text_field :semester %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit "Save Course" %>
   </div>
 <% end %>
+

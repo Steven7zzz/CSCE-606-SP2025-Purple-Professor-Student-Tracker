@@ -1,11 +1,16 @@
-<div id="<%= dom_id pt_enrollment %>">
+<div id="<%= dom_id pt_enrollment %>" class="course-info-box">
   <p>
-    <strong>Course:</strong>
-    <%= pt_enrollment.course.name %> (<%= pt_enrollment.course.number %>) - Section <%= pt_enrollment.course.section %>
+    <span class="detail-label">Course:</span>
+    <span class="detail-value">
+      <%= pt_enrollment.course.name %> (<%= pt_enrollment.course.number %>) - Section <%= pt_enrollment.course.section %>
+    </span>
   </p>
 
   <p>
-    <strong>Peer Teacher:</strong>
-    <%= "#{pt_enrollment.peer_teacher.first_name} #{pt_enrollment.peer_teacher.last_name}" %>
+    <span class="detail-label">Peer Teacher:</span>
+    <span class="detail-value">
+      <%= "#{pt_enrollment.peer_teacher.first_name} #{pt_enrollment.peer_teacher.last_name}" %>
+    </span>
   </p>
 </div>
+

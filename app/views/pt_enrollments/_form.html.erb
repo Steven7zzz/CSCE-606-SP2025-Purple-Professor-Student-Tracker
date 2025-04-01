@@ -1,6 +1,6 @@
-<%= form_with(model: pt_enrollment) do |form| %>
+<%= form_with(model: pt_enrollment, html: { class: "course-form" }) do |form| %>
   <% if pt_enrollment.errors.any? %>
-    <div style="color: red">
+    <div class="error-box">
       <h2><%= pluralize(pt_enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
       <ul>
         <% pt_enrollment.errors.each do |error| %>
@@ -10,20 +10,25 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :course_id, "Course", style: "display: block" %>
-    <%= form.select :course_id, Course.all.map { |c| ["#{c.name} - #{c.number} - #{c.section}", c.id] }, { prompt: "Select a course" }, { class: "select2" } %>
+  <div class="form-group">
+    <%= form.label :course_id, "Course" %>
+    <%= form.select :course_id, Course.all.map { |c| ["#{c.name} - #{c.number} - #{c.section}", c.id] }, 
+        { prompt: "Select a course" }, 
+        { class: "form-control select2" } %>
   </div>
 
-  <div>
-    <%= form.label :peer_teacher_id, "Peer Teacher", style: "display: block" %>
-    <%= form.select :peer_teacher_id, PeerTeacher.all.map { |pt| ["#{pt.first_name} #{pt.last_name}", pt.id] }, { prompt: "Select a peer teacher" }, { class: "select2" } %>
+  <div class="form-group">
+    <%= form.label :peer_teacher_id, "Peer Teacher" %>
+    <%= form.select :peer_teacher_id, PeerTeacher.all.map { |pt| ["#{pt.first_name} #{pt.last_name}", pt.id] }, 
+        { prompt: "Select a peer teacher" }, 
+        { class: "form-control select2" } %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit "Save Assignment", class: "btn btn-maroon" %>
   </div>
 <% end %>
+
 
 <!-- Include Select2 JS and CSS -->
 <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js", defer: true %>

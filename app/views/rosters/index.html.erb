@@ -1,5 +1,6 @@
 <% content_for :title, "Rosters" %>
 
+
 <div class="container">
   <!-- CSV Upload Form (Now Below the Roster List) -->
   <h1>Upload a New Roster</h1>
@@ -9,7 +10,7 @@
       <%= form.file_field :file, accept: ".csv", class: "form-control" %>
     </div>
     <div class="button-container">
-      <%= form.submit "Upload", class: "btn btn-light-blue" %>
+      <%= form.submit "Upload", class: "btn btn-maroon" %>
     </div>
   <% end %>
 
@@ -20,13 +21,13 @@
       <%= form.file_field :file, accept: ".csv", class: "form-control" %>
     </div>
     <div class="button-container">
-      <%= form.submit "Upload", class: "btn btn-light-blue" %>
+      <%= form.submit "Upload", class: "btn btn-maroon" %>
     </div>
   <% end %>
 
 
   <div class="button-container">
-    <%= link_to "Back to Home", root_path, class: "btn btn-light-gray" %>
+    <%= link_to "Back to Home", root_path, class: "btn btn-maroon" %>
   </div>
 </div>
 
