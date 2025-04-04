@@ -17,7 +17,7 @@ RSpec.describe CsvPtParser do
     end
 
     let(:tempfile) do
-      file = Tempfile.new(['pt_import', '.csv'])
+      file = Tempfile.new([ 'pt_import', '.csv' ])
       file.write(csv_content)
       file.rewind
       file
@@ -68,7 +68,7 @@ RSpec.describe CsvPtParser do
       end
 
       let(:bad_tempfile) do
-        file = Tempfile.new(['bad_format', '.csv'])
+        file = Tempfile.new([ 'bad_format', '.csv' ])
         file.write(bad_csv_content)
         file.rewind
         file
@@ -100,7 +100,7 @@ RSpec.describe CsvPtParser do
       end
 
       let(:bad_semester_tempfile) do
-        file = Tempfile.new(['bad_semester', '.csv'])
+        file = Tempfile.new([ 'bad_semester', '.csv' ])
         file.write(bad_semester_content)
         file.rewind
         file

@@ -3,20 +3,20 @@ require 'rails_helper'
 RSpec.describe EnrollmentsController, type: :controller do
   let(:course) do
     Course.find_or_create_by(
-      name: 'CSCE', 
-      number: '100', 
-      section: '100', 
-      year: '2025', 
+      name: 'CSCE',
+      number: '100',
+      section: '100',
+      year: '2025',
       semester: 'Spring'
     )
   end
-  
+
   let(:student) do
     Student.find_or_create_by(
-      first_name: 'John', 
-      last_name: 'Smith', 
-      uin: '123456789', 
-      major: 'Computer Science', 
+      first_name: 'John',
+      last_name: 'Smith',
+      uin: '123456789',
+      major: 'Computer Science',
       email: 'johnsmith@tamu.edu'
     )
   end

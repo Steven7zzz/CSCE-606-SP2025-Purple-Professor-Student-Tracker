@@ -17,7 +17,7 @@ RSpec.describe CsvParser do
     end
 
     let(:tempfile) do
-      file = Tempfile.new(['csce100_100', '.csv'])
+      file = Tempfile.new([ 'csce100_100', '.csv' ])
       file.write(csv_content)
       file.rewind
       file
