@@ -25,7 +25,7 @@ class RostersController < ApplicationController
     @sort = sort
     @order = order
 
-    @course = Course.find(params[:id]) 
+    @course = Course.find(params[:id])
     @course_students = @course.students.order("#{sort} #{order}")
   end
 end

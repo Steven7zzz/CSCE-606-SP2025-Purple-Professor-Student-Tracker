@@ -21,7 +21,7 @@ Then('I should see {string}') do |text|
 end
 
 When("I click on {string}") do |button_text|
-  expect(page).to have_link(button_text, wait: 5)  
+  expect(page).to have_link(button_text, wait: 5)
   click_link button_text
 end
 
@@ -36,7 +36,7 @@ end
 
 
 Then("I should be on the teachers index page") do
-  expect(current_path).to eq(peer_teachers_path) 
+  expect(current_path).to eq(peer_teachers_path)
 end
 
 
@@ -80,5 +80,5 @@ Then(/^I should not see "(.*)" on the teachers index page$/) do |name|
 end
 
 Given("I am on the Peer Teachers index page") do
-  visit peer_teachers_path  
+  visit peer_teachers_path
 end

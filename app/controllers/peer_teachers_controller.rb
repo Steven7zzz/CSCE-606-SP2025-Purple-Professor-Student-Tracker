@@ -57,11 +57,10 @@ class PeerTeachersController < ApplicationController
       @peer_teacher = PeerTeacher.find(params.expect(:id))
     end
 
-    before_action :authenticate_user! 
-    skip_before_action :authenticate_user!, only: [:index] 
+    before_action :authenticate_user!
+    skip_before_action :authenticate_user!, only: [ :index ]
     # Only allow a list of trusted parameters through.
     def peer_teacher_params
       params.expect(peer_teacher: [ :first_name, :last_name, :uin, :email ])
-
     end
 end

@@ -115,7 +115,7 @@ RSpec.describe PtEnrollmentsController, type: :controller do
     end
 
     let(:tempfile) do
-      file = Tempfile.new(['pt', '.csv'])
+      file = Tempfile.new([ 'pt', '.csv' ])
       file.write(csv_content)
       file.rewind
       file

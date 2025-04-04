@@ -15,7 +15,7 @@ RSpec.describe RostersController, type: :controller do
 
       get :index
 
-      expect(assigns(:rosters)).to match_array([course1, course2])
+      expect(assigns(:rosters)).to match_array([ course1, course2 ])
       expect(response).to render_template(:index)
     end
   end
@@ -37,14 +37,14 @@ RSpec.describe RostersController, type: :controller do
           "Doe, John",123456789,CS,john.doe@example.com
         CSV
       end
-    
+
       let(:tempfile) do
-        file = Tempfile.new(['CSCE100_100', '.csv'])
+        file = Tempfile.new([ 'CSCE100_100', '.csv' ])
         file.write(csv_content)
         file.rewind
         file
       end
-    
+
       let(:valid_file) do
         ActionDispatch::Http::UploadedFile.new(
           filename: "CSCE100_100.csv",
@@ -52,22 +52,22 @@ RSpec.describe RostersController, type: :controller do
           tempfile: tempfile
         )
       end
-    
+
       after do
         tempfile.close
         tempfile.unlink
       end
-    
+
       it "calls CsvParser.import and sets success flash" do
         allow(CsvParser).to receive(:import)
-    
+
         post :import, params: { file: valid_file }
-    
+
         expect(CsvParser).to have_received(:import)
         expect(flash[:notice]).to eq("CSV imported successfully!")
         expect(response).to redirect_to(courses_path)
       end
-    end    
+    end
   end
 
 
