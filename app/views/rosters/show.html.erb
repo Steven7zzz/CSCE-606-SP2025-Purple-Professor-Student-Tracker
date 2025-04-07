@@ -47,6 +47,9 @@
             <% end %>
         </th>
         <th>
+            Grade
+        </th>
+        <th>
             <%= link_to "Email", roster_path(sort: 'email', order: @sort == 'email' && @order == 'asc' ? 'desc' : 'asc') %>
             <% if @sort == 'email' %>
             <% if @order == 'asc' %>
@@ -60,11 +63,13 @@
     </thead>
   <tbody>
     <% @course_students.each do |student| %>
+      <% enrollment = Enrollment.find_by(course_id: @course.id, student_id: student.id) %>
       <tr>
         <td><%= link_to student.first_name, student_path(student) %></td>
         <td><%= student.last_name %></td>
         <td><%= student.uin %></td>
         <td><%= student.major %></td>
+        <td><%= enrollment&.grade || "N/A" %></td>
         <td><%= student.email %></td>
       </tr>
     <% end %>

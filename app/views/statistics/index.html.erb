@@ -3,3 +3,5 @@
 <p>Total Students: <%= @total_students %></p>
 <p>Average Grade: <%= @average_grade %></p>
 <p>Highest Grade: <%= @highest_grade %></p>
+
+<%= link_to "View Duplicate Students (#{@duplicate_count})", statistics_duplicate_students_path %>
