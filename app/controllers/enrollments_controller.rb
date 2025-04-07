@@ -61,4 +61,17 @@ class EnrollmentsController < ApplicationController
     def enrollment_params
       params.expect(enrollment: [ :course_id, :student_id, :grade ])
     end
+
+   
+    def grade_to_numeric
+      case grade
+      when 'A' then 4.0
+      when 'B' then 3.0
+      when 'C' then 2.0
+      when 'D' then 1.0
+      when 'F' then 0.0
+      else nil
+      end
+    end
+    
 end
