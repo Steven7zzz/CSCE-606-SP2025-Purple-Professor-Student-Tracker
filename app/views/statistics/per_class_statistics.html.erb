@@ -7,6 +7,9 @@
       <th>Student Count</th>
       <th>Average Grade</th>
       <th>Highest Grade</th>
+      <th>F Rate (%)</th>
+      <th>Q Rate (%)</th>
+      <th>W Rate (%)</th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +19,13 @@
         <td><%= stat[:student_count] %></td>
         <td><%= stat[:average_grade].round(2) %></td>
         <td><%= stat[:highest_grade] %></td>
+        <td><%= stat[:f_rate] %></td>
+        <td><%= stat[:q_rate] %></td>
+        <td><%= stat[:w_rate] %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br> </br>
+<%= link_to 'Back to Statistics', statistics_path %>

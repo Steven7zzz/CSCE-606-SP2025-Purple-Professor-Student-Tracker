@@ -25,22 +25,23 @@ class StatisticsController < ApplicationController
 
   def per_class_statistics
     valid_grades = ['A', 'B', 'C', 'D', 'F']
-
-    enrollments = Enrollment.joins(:course)
-                            .where(grade: valid_grades)
-                            .select(:course_id, :grade)
-
-    numeric_grades_by_course = enrollments.group_by(&:course_id).transform_values do |enrollments|
-      enrollments.map { |enrollment| Enrollment.grade_to_numeric(enrollment.grade) }.compact
-    end
-
-    @class_statistics = numeric_grades_by_course.map do |course_id, grades|
+    all_enrollments = Enrollment.includes(:course)
+  
+    @class_statistics = Course.includes(:enrollments).map do |course|
+      course_enrollments = course.enrollments
+  
+      numeric_grades = course_enrollments.map { |e| Enrollment.grade_to_numeric(e.grade) }.compact
+      total = course_enrollments.size.nonzero? || 1  # Avoid divide by zero
+  
       {
-        course_name: Course.find(course_id).name,
-        student_count: grades.size,
-        average_grade: grades.sum / grades.size.to_f,
-        highest_grade: grades.max
+        course_name: "#{course.name}#{course.number}-#{course.section} (#{course.semester} #{course.year})",
+        student_count: course_enrollments.size,
+        average_grade: numeric_grades.sum / numeric_grades.size.to_f,
+        highest_grade: numeric_grades.max,
+        f_rate: (course_enrollments.count { |e| e.grade == 'F' } / total.to_f * 100).round(2),
+        q_rate: (course_enrollments.count { |e| e.grade == 'Q' } / total.to_f * 100).round(2),
+        w_rate: (course_enrollments.count { |e| e.grade == 'W' } / total.to_f * 100).round(2)
       }
     end
-  end
+  end  
 end
