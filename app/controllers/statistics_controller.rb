@@ -22,4 +22,25 @@ class StatisticsController < ApplicationController
       .having(Arel.sql('COUNT(DISTINCT enrollments.course_id) > 1'))
       .pluck(Arel.sql("students.id, CONCAT(students.first_name, ' ', students.last_name) AS full_name, COUNT(DISTINCT enrollments.course_id) AS class_count"))
   end
+
+  def per_class_statistics
+    valid_grades = ['A', 'B', 'C', 'D', 'F']
+
+    enrollments = Enrollment.joins(:course)
+                            .where(grade: valid_grades)
+                            .select(:course_id, :grade)
+
+    numeric_grades_by_course = enrollments.group_by(&:course_id).transform_values do |enrollments|
+      enrollments.map { |enrollment| Enrollment.grade_to_numeric(enrollment.grade) }.compact
+    end
+
+    @class_statistics = numeric_grades_by_course.map do |course_id, grades|
+      {
+        course_name: Course.find(course_id).name,
+        student_count: grades.size,
+        average_grade: grades.sum / grades.size.to_f,
+        highest_grade: grades.max
+      }
+    end
+  end
 end
