@@ -1,0 +1,10 @@
+<h1>Student Statistics</h1>
+
+<p>Total Students: <%= @total_students %></p>
+<P><%= link_to 'Students in Multiple Courses', statistics_duplicate_students_path %>: <%= @duplicate_count %></p>
+<p>Average Grade: <%= @average_grade %></p>
+<p>Highest Grade: <%= @highest_grade %></p>
+
+
+<%= link_to 'View Per Class Statistics', statistics_per_class_statistics_path %>
+
