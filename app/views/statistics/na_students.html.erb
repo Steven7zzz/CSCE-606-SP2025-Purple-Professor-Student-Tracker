@@ -1,0 +1,24 @@
+<div class="statistics-section">
+  <h2>Students with "N/A" Grade</h2>
+
+  <table class="course-table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>UIN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @na_students.each do |student| %>
+        <tr>
+          <td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
+          <td><%= student.uin %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="button-container">
+    <%= link_to 'Back to Statistics', statistics_path, class: 'btn btn-light-gray' %>
+  </div>
+</div>

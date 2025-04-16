@@ -15,8 +15,15 @@
     </div>
 
     <div class="stat-box">
+        <div class="stat-label">
+            <%= link_to 'Students with "N/A" Grade', statistics_na_students_path, class: "simple-link" %>
+        </div>
+        <div class="stat-value"><%= @na_count %></div>
+    </div>
+
+    <div class="stat-box">
       <div class="stat-label">Average Grade</div>
-      <div class="stat-value"><%= @average_grade %></div>
+      <div class="stat-value"><%= @average_grade.round(2) %></div>
     </div>
 
     <div class="stat-box">
