@@ -1,31 +1,34 @@
-<h1>Class Statistics</h1>
+<div class="statistics-section">
+  <h2>Class Statistics</h2>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>Course Name</th>
-      <th>Student Count</th>
-      <th>Average Grade</th>
-      <th>Highest Grade</th>
-      <th>F Rate (%)</th>
-      <th>Q Rate (%)</th>
-      <th>W Rate (%)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @class_statistics.each do |stat| %>
+  <table class="course-table">
+    <thead>
       <tr>
-        <td><%= stat[:course_name] %></td>
-        <td><%= stat[:student_count] %></td>
-        <td><%= stat[:average_grade].round(2) %></td>
-        <td><%= stat[:highest_grade] %></td>
-        <td><%= stat[:f_rate] %></td>
-        <td><%= stat[:q_rate] %></td>
-        <td><%= stat[:w_rate] %></td>
+        <th>Course Name</th>
+        <th>Student Count</th>
+        <th>Average Grade</th>
+        <th>Highest Grade</th>
+        <th>F Rate (%)</th>
+        <th>Q Rate (%)</th>
+        <th>W Rate (%)</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @class_statistics.each do |stat| %>
+        <tr>
+          <td><%= stat[:course_name] %></td>
+          <td><%= stat[:student_count] %></td>
+          <td><%= stat[:average_grade].round(2) %></td>
+          <td><%= stat[:highest_grade] %></td>
+          <td><%= stat[:f_rate] %></td>
+          <td><%= stat[:q_rate] %></td>
+          <td><%= stat[:w_rate] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br> </br>
-<%= link_to 'Back to Statistics', statistics_path %>
+  <div class="button-container">
+    <%= link_to 'Back to Statistics', statistics_path, class: 'btn btn-light-gray' %>
+  </div>
+</div>

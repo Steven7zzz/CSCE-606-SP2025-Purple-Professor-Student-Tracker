@@ -21,7 +21,7 @@ class CsvParser
       cur_student = Student.find_or_create_by(first_name: student_first_name, last_name: student_last_name, uin: student_data["UIN"], major: student_data["Major"], email: student_data["Email"])
       
       # Update grade sampling to missing placeholder once statistics testing is complete
-      grade = student_data.key?("Grade") ? student_data["Grade"] : ["A", "B", "C", "D", "F", "Q", "W"].sample
+      grade = student_data.key?("Grade") ? student_data["Grade"] : "N/A"
       Enrollment.find_or_create_by!(course: @course, student: cur_student) do |enrollment|
         enrollment.grade = grade
       end

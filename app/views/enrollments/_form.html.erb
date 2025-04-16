@@ -11,28 +11,31 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :course_id, "Course" %>
-    <%= form.select :course_id, Course.all.map { |c| [ "#{c.name} - #{c.number} - #{c.section}", c.id ] }, 
+    <%= form.label :course_id, "Course", class: "form-label" %>
+    <%= form.select :course_id, 
+        Course.all.map { |c| [ "#{c.name} - #{c.number} - #{c.section}", c.id ] }, 
         { prompt: "Select a course" }, 
         { class: "form-control select2" } %>
   </div>
 
   <div class="form-group">
-    <%= form.label :student_id, "Student" %>
-    <%= form.select :student_id, Student.all.map { |s| [ "#{s.first_name} #{s.last_name}", s.id ] }, 
+    <%= form.label :student_id, "Student", class: "form-label" %>
+    <%= form.select :student_id, 
+        Student.all.map { |s| [ "#{s.first_name} #{s.last_name}", s.id ] }, 
         { prompt: "Select a student" }, 
         { class: "form-control select2" } %>
   </div>
 
   <div class="form-group">
-    <%= form.label :grade, "Grade" %>
+    <%= form.label :grade, "Grade", class: "form-label" %>
     <%= form.text_field :grade, class: "form-control" %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions" style="text-align: center; margin-top: 20px;">
     <%= form.submit "Save Enrollment", class: "btn btn-maroon" %>
   </div>
 <% end %>
+
 
 
 <!-- Include Select2 JS and CSS -->
