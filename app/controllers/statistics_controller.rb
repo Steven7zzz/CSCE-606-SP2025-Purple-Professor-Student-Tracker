@@ -3,7 +3,11 @@ class StatisticsController < ApplicationController
     @total_students = Student.count
 
     # Exclude N/A grades from numeric calculations
-    numeric_grades = Enrollment.all
+    valid_numeric_grades = ['A', 'B', 'C', 'D', 'F']
+
+    # Filter enrollments with valid numeric grades only
+    numeric_grades = Enrollment
+      .where(grade: valid_numeric_grades)
       .map { |e| Enrollment.grade_to_numeric(e.grade) }
       .compact
 
