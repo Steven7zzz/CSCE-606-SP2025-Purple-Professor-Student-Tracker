@@ -1,10 +1,35 @@
-<h1>Student Statistics</h1>
+<% content_for :title, "Student Statistics" %>
 
-<p>Total Students: <%= @total_students %></p>
-<P><%= link_to 'Students in Multiple Courses', statistics_duplicate_students_path %>: <%= @duplicate_count %></p>
-<p>Average Grade: <%= @average_grade %></p>
-<p>Highest Grade: <%= @highest_grade %></p>
+<div class="container">
+  <h1 class="page-title">Student Statistics</h1>
 
+  <div class="detail-container">
+    <div class="detail-row">
+      <span class="detail-label">Total Students:</span>
+      <span class="detail-value"><%= @total_students %></span>
+    </div>
 
-<%= link_to 'View Per Class Statistics', statistics_per_class_statistics_path %>
+    <div class="detail-row">
+      <span class="detail-label">
+        <%= link_to 'Students in Multiple Courses', statistics_duplicate_students_path, class: "simple-link" %>
+      </span>
+      <span class="detail-value"><%= @duplicate_count %></span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-label">Average Grade:</span>
+      <span class="detail-value"><%= @average_grade %></span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-label">Highest Grade:</span>
+      <span class="detail-value"><%= @highest_grade %></span>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <%= link_to 'View Per Class Statistics', statistics_per_class_statistics_path, class: "btn btn-maroon" %>
+  </div>
+</div>
+
 

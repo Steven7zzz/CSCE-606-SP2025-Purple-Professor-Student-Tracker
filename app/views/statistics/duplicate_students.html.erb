@@ -1,20 +1,27 @@
-<h1>Duplicate Students Across Different Classes</h1>
+<% content_for :title, "Duplicate Students" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Student Name</th>
-      <th>Number of Classes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @duplicate_students.each do |id, name, class_count| %>
+<div class="container">
+  <h1 class="page-title">Duplicate Students Across Different Classes</h1>
+
+  <table class="course-table">
+    <thead>
       <tr>
-        <td><%= link_to name, student_path(id) %></td>
-        <td><%= class_count %></td>
+        <th>Student Name</th>
+        <th>Number of Classes</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br> </br>
-<%= link_to 'Back to Statistics', statistics_path %>
+    </thead>
+    <tbody>
+      <% @duplicate_students.each do |id, name, class_count| %>
+        <tr>
+          <td><%= link_to name, student_path(id), class: "simple-link" %></td>
+          <td><%= class_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="button-container">
+    <%= link_to 'Back to Statistics', statistics_path, class: "btn btn-maroon" %>
+  </div>
+</div>
+
