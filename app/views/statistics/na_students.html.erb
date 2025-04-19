@@ -1,18 +1,18 @@
 <div class="statistics-section">
-  <h2>Duplicate Students Across Different Classes</h2>
+  <h2>Students with "N/A" Grade</h2>
 
   <table class="course-table">
     <thead>
       <tr>
         <th>Student Name</th>
-        <th>Number of Classes</th>
+        <th>UIN</th>
       </tr>
     </thead>
     <tbody>
-      <% @duplicate_students.each do |id, name, class_count| %>
+      <% @na_students.each do |student| %>
         <tr>
-          <td><%= link_to name, student_path(id) %></td>
-          <td><%= class_count %></td>
+          <td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
+          <td><%= student.uin %></td>
         </tr>
       <% end %>
     </tbody>

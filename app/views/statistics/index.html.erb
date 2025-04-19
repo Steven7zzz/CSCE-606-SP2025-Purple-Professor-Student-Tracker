@@ -1,10 +1,38 @@
-<h1>Student Statistics</h1>
+<div class="statistics-section">
+  <h2>Student Statistics</h2>
 
-<p>Total Students: <%= @total_students %></p>
-<P><%= link_to 'Students in Multiple Courses', statistics_duplicate_students_path %>: <%= @duplicate_count %></p>
-<p>Average Grade: <%= @average_grade %></p>
-<p>Highest Grade: <%= @highest_grade %></p>
+  <div class="statistics-grid">
+    <div class="stat-box">
+      <div class="stat-label">Total Students</div>
+      <div class="stat-value"><%= @total_students %></div>
+    </div>
 
+    <div class="stat-box">
+      <div class="stat-label">
+        <%= link_to 'Students in Multiple Courses', statistics_duplicate_students_path, class: "simple-link" %>
+      </div>
+      <div class="stat-value"><%= @duplicate_count %></div>
+    </div>
 
-<%= link_to 'View Per Class Statistics', statistics_per_class_statistics_path %>
+    <div class="stat-box">
+        <div class="stat-label">
+            <%= link_to 'Students with "N/A" Grade', statistics_na_students_path, class: "simple-link" %>
+        </div>
+        <div class="stat-value"><%= @na_count %></div>
+    </div>
 
+    <div class="stat-box">
+      <div class="stat-label">Average Grade</div>
+      <div class="stat-value"><%= @average_grade.round(2) %></div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-label">Highest Grade</div>
+      <div class="stat-value"><%= @highest_grade %></div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <%= link_to 'View Per Class Statistics', statistics_per_class_statistics_path, class: 'btn btn-maroon' %>
+  </div>
+</div>

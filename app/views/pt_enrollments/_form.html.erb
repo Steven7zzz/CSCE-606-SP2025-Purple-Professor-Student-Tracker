@@ -11,20 +11,22 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :course_id, "Course" %>
-    <%= form.select :course_id, Course.all.map { |c| ["#{c.name} - #{c.number} - #{c.section}", c.id] }, 
+    <%= form.label :course_id, "Course", class: "form-label" %>
+    <%= form.select :course_id, 
+        Course.all.map { |c| ["#{c.name} - #{c.number} - #{c.section}", c.id] }, 
         { prompt: "Select a course" }, 
         { class: "form-control select2" } %>
   </div>
 
   <div class="form-group">
-    <%= form.label :peer_teacher_id, "Peer Teacher" %>
-    <%= form.select :peer_teacher_id, PeerTeacher.all.map { |pt| ["#{pt.first_name} #{pt.last_name}", pt.id] }, 
+    <%= form.label :peer_teacher_id, "Peer Teacher", class: "form-label" %>
+    <%= form.select :peer_teacher_id, 
+        PeerTeacher.all.map { |pt| ["#{pt.first_name} #{pt.last_name}", pt.id] }, 
         { prompt: "Select a peer teacher" }, 
         { class: "form-control select2" } %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions" style="text-align: center; margin-top: 20px;">
     <%= form.submit "Save Assignment", class: "btn btn-maroon" %>
   </div>
 <% end %>
