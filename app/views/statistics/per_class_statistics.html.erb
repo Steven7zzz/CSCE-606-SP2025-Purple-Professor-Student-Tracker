@@ -18,11 +18,11 @@
         <tr>
           <td><%= link_to stat[:course_name], roster_path(stat[:course_id]), class: "simple-link" %></td>
           <td><%= stat[:student_count] %></td>
-          <td><%= stat[:average_grade].round(2) %></td>
-          <td><%= stat[:highest_grade] %></td>
-          <td><%= stat[:f_rate].round(2) %></td>
-          <td><%= stat[:q_rate].round(2) %></td>
-          <td><%= stat[:w_rate].round(2) %></td>
+          <td><%= stat[:average_grade]&.round(2) || "N/A" %></td>
+          <td><%= stat[:highest_grade] || "N/A" %></td>
+          <td><%= stat[:f_rate]&.round(2) || "N/A" %></td>
+          <td><%= stat[:q_rate]&.round(2) || "N/A" %></td>
+          <td><%= stat[:w_rate]&.round(2) || "N/A" %></td>
         </tr>
       <% end %>
     </tbody>
