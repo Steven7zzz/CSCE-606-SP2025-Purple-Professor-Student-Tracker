@@ -45,14 +45,11 @@ class CoursesController < ApplicationController
     end
   end
 
-  # DELETE /courses/1 or /courses/1.json
+  # DELETE /courses/1
   def destroy
-    @course.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to courses_path, status: :see_other, notice: "Course was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @course = Course.find(params[:id])
+    @course.safe_destroy
+    redirect_to courses_path, notice: "Course and related data deleted successfully."
   end
 
   private
