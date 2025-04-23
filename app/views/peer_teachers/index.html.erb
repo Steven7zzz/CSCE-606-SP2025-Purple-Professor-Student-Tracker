@@ -22,7 +22,7 @@
             <td><%= peer_teacher.uin %></td>
             <td><%= peer_teacher.email %></td>
             <td>
-              <%= link_to "View", peer_teacher_path(peer_teacher), class: "btn btn-maroon btn-sm" %>
+              <%= link_to "Edit", edit_peer_teacher_path(peer_teacher), class: "btn btn-maroon" %>
             </td>
           </tr>
         <% end %>

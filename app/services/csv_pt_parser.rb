@@ -47,7 +47,7 @@ class CsvPtParser
 
       # Check if the course exists but is missing semester or year
       if course.nil?
-        raise "Course not found: #{course_name} #{course_number}. Missing year or semester?"
+        raise "Course not match: #{course_name} #{course_number} (#{semester} #{year}) with — Peer Teacher: #{first_name} #{last_name}. Missing year or semester?"
       end
       # Create Enrollment using IDs to ensure efficiency
       PtEnrollment.find_or_create_by(peer_teacher_id: peer_teacher.id, course_id: course.id)

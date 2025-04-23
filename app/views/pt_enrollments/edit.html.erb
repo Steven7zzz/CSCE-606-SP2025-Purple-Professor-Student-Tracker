@@ -8,6 +8,6 @@
 
 
 <div class="action-button-box">
-    <%= link_to "Show this pt enrollment", @pt_enrollment, class: "btn btn-maroon" %>
+    <%= button_to "Destroy this pt enrollment", @pt_enrollment, method: :delete, class: "btn btn-maroon", data: { confirm: "Are you sure?" } %>
     <%= link_to "Back to pt enrollments", pt_enrollments_path, class: "btn btn-maroon" %>
 </div>

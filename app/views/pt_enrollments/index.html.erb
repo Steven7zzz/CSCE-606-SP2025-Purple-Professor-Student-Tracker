@@ -20,7 +20,7 @@
             <td><%= pt_enrollment.course.number %></td>
             <td><%= pt_enrollment.peer_teacher.first_name %> <%= pt_enrollment.peer_teacher.last_name %></td>
             <td>
-              <%= link_to "View", pt_enrollment_path(pt_enrollment), class: "btn btn-maroon btn-sm" %>
+              <%= link_to "Edit", edit_pt_enrollment_path(pt_enrollment), class: "btn btn-maroon" %>
             </td>
           </tr>
         <% end %>
