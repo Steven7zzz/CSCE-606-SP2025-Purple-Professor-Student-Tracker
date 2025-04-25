@@ -1,6 +1,9 @@
 class Course < ApplicationRecord
     has_many :enrollments, dependent: :destroy
     has_many :students, through: :enrollments
+
+    has_many :pt_enrollments, dependent: :destroy
+    has_many :peer_teachers, through: :pt_enrollments
   
     def safe_destroy
       ActiveRecord::Base.transaction do
