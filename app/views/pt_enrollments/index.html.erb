@@ -9,6 +9,7 @@
         <tr>
           <th>Course</th>
           <th>Number</th>
+          <th>Section</th>
           <th>Peer Teacher</th>
           <th>Actions</th>
         </tr>
@@ -18,6 +19,7 @@
           <tr>
             <td><%= pt_enrollment.course.name %></td>
             <td><%= pt_enrollment.course.number %></td>
+            <td><%= pt_enrollment.course.section %></td>
             <td><%= pt_enrollment.peer_teacher.first_name %> <%= pt_enrollment.peer_teacher.last_name %></td>
             <td>
               <%= link_to "Edit", edit_pt_enrollment_path(pt_enrollment), class: "btn btn-maroon" %>

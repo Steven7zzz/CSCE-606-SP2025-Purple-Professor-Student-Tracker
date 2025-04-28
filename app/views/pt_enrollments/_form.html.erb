@@ -1,15 +1,4 @@
 <%= form_with(model: pt_enrollment, html: { class: "course-form" }) do |form| %>
-  <% if pt_enrollment.errors.any? %>
-    <div class="error-box">
-      <h2><%= pluralize(pt_enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
-      <ul>
-        <% pt_enrollment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group">
     <%= form.label :course_id, "Course", class: "form-label" %>
     <%= form.select :course_id, 
