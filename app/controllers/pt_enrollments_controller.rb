@@ -27,6 +27,13 @@ class PtEnrollmentsController < ApplicationController
       if @pt_enrollment.save
         format.html { redirect_to @pt_enrollment, notice: "Pt enrollment was successfully created." }
         format.json { render :show, status: :created, location: @pt_enrollment }
+      else
+        # this handles validation failures
+        format.html do
+          flash.now[:alert] = @pt_enrollment.errors.full_messages.to_sentence
+          render :edit, status: :unprocessable_entity
+        end
+        format.json { render json: @pt_enrollment.errors, status: :unprocessable_entity }
       end
     end
   end
